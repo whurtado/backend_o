@@ -71,7 +71,7 @@ class RolesController extends Controller
     }
 
     public function update(Request $request){
-        
+
         //validacion formulario
         $data = $request->validate([
             'name' => 'required|unique:roles,name,'. $request->id,
