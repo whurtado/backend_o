@@ -15,8 +15,8 @@ class CreateDetalleFacturasTable extends Migration
     {
         Schema::create('tbldetallefactura', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('fvcfactura_id');
-            $table->unsignedInteger('fvcarticulo_id');
+            $table->unsignedBigInteger('fvcfactura_id');
+            $table->unsignedBigInteger('fvcarticulo_id');
             $table->string('fvctalla',10);
             $table->string('fvcdescripcion', 250);
             $table->timestamp('fvcentregado');
@@ -24,10 +24,10 @@ class CreateDetalleFacturasTable extends Migration
             $table->string('fvcestadoprenda', 20);
             $table->text('fvcnota');
             $table->string('fvcestado', 2);
-            $table->unsignedInteger('fvcusuario_id');
+            $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
-            $table->foreign('fvcfactura_id')->references('id')->on('tblfactura');
-            $table->foreign('fvcarticulo_id')->references('id')->on('tblarticulos');
+            //$table->foreign('fvcfactura_id')->references('id')->on('tblfactura');
+            //$table->foreign('fvcarticulo_id')->references('id')->on('tblarticulos');
 
             $table->timestamps();
 

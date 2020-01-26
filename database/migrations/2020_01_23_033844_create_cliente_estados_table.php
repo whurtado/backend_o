@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSedesTable extends Migration
+class CreateClienteEstadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,19 @@ class CreateSedesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tblsede', function (Blueprint $table) {
+        Schema::create('tblclienteestado', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fvcnombre', 100);
-            $table->string('fvcestado', 50);
-            $table->unsignedInteger('fvcusuario_id');
+            $table->unsignedBigInteger('fvccliente_id');
+            $table->date('fdtfecha', 150)->nullable();
+            $table->string('fdtobservacion', 50);
+            $table->string('fdtestado');
+            $table->unsignedBigInteger('fvcusuario_id');
+            //$table->foreign('fvccliente_id')->references('id')->on('tblcliente');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -30,6 +33,6 @@ class CreateSedesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tblsede');
+        Schema::dropIfExists('tblclienteestado');
     }
 }

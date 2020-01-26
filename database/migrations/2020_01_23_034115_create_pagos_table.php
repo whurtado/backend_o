@@ -26,16 +26,16 @@ class CreatePagosTable extends Migration
             $table->string('fvcfactura', 30);
             $table->date('fdtfecha');
             $table->integer('fintfactura');
-            $table->unsignedInteger('fvcusuario_id');
-            $table->unsignedInteger('fvcclasificacionpago_id');
-            $table->unsignedInteger('fvcpagofactura_id');
-            $table->unsignedInteger('fvcautorizacion_id');
-            $table->unsignedInteger('fvcsede_id');
+            $table->unsignedBigInteger('fvcusuario_id');
+            $table->unsignedBigInteger('fvcclasificacionpago_id');
+            $table->unsignedBigInteger('fvcpagofactura_id');
+            $table->unsignedBigInteger('fvcautorizacion_id');
+            $table->unsignedBigInteger('fvcsede_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
-            $table->foreign('fvcclasificacionpago_id')->references('id')->on('tblclasificacionpago');
-            $table->foreign('fvcpagofactura_id')->references('id')->on('tblpagofactura');
-            $table->foreign('fvcautorizacion_id')->references('id')->on('tblautorizacion');
-            $table->foreign('fvcsede_id')->references('id')->on('tblsede');
+            //$table->foreign('fvcpagofactura_id')->references('id')->on('tblpagofactura');
+            //$table->foreign('fvcautorizacion_id')->references('id')->on('tblautorizacion');
+            //$table->foreign('fvcsede_id')->references('id')->on('tblsede');
+            //$table->foreign('fvcclasificacionpago_id')->references('id')->on('tblclasificacionpago');
 
             $table->timestamps();
         });

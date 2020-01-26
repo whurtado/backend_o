@@ -2,8 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14e86c30-1a6e-46b7-b42f-af34f96a8040" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/comandos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/backoffice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backoffice.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RolesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RolesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VendedorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VendedorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/clienteEstado.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/clienteNovedad.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/clienteNovedad.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_033824_create_categorias_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_033824_create_categorias_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_033825_create_autorizacions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_033815_create_autorizacions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_033844_create_articulos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_033844_create_articulos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_033853_create_sedes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_033814_create_sedes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_033937_create_registro_pagos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_033811_create_registro_pagos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_033957_create_clasificacion_pagos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_033813_create_clasificacion_pagos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_034007_create_clientes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_033810_create_clientes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_034032_create_tipo_autorizacions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_033812_create_tipo_autorizacions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_034115_create_pagos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_034115_create_pagos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_034123_create_vendedors_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_033816_create_vendedors_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_034958_create_cliente_novedads_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_033846_create_cliente_novedads_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_035032_create_cliente_estados_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_033844_create_cliente_estados_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_035130_create_detalle_cliente_referencias_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_035130_create_detalle_cliente_referencias_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_035144_create_detalle_estado_facturas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_035144_create_detalle_estado_facturas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_035210_create_detalle_facturas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_035210_create_detalle_facturas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_035219_create_estado_facturas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_035219_create_estado_facturas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_23_035249_create_pago_facturas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_23_035249_create_pago_facturas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +39,41 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="980">
+              <caret line="97" column="28" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VendedorController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="119" column="80" selection-start-line="119" selection-start-column="80" selection-end-line="119" selection-end-column="80" />
+              <folding>
+                <element signature="e#40#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="145" column="45" selection-start-line="145" selection-start-column="39" selection-end-line="145" selection-end-column="45" />
+              <folding>
+                <element signature="e#40#74#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -25,6 +83,8 @@
       <find>edit</find>
       <find>syncRoles</find>
       <find>Role</find>
+      <find>CreateClienteNovedadsTable</find>
+      <find>update</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -33,14 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserRolesController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserPermissionsController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/RolesController.php" />
-        <option value="$PROJECT_DIR$/app/vendedor.php" />
         <option value="$PROJECT_DIR$/app/tipoAutorizacion.php" />
         <option value="$PROJECT_DIR$/app/sede.php" />
         <option value="$PROJECT_DIR$/app/registroPago.php" />
@@ -55,8 +107,6 @@
         <option value="$PROJECT_DIR$/app/detalleFactura.php" />
         <option value="$PROJECT_DIR$/app/detalleEstadoFactura.php" />
         <option value="$PROJECT_DIR$/app/detalleClienteReferencia.php" />
-        <option value="$PROJECT_DIR$/app/clienteNovedad.php" />
-        <option value="$PROJECT_DIR$/app/clienteEstado.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ArticuloController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AutorizacionController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" />
@@ -66,24 +116,34 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/RegistroPagoController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SedeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TipoAutorizacionController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VendedorController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033902_create_categorias_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033824_create_categorias_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034958_create_cliente_novedads_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034123_create_vendedors_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034032_create_tipo_autorizacions_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033825_create_autorizacions_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033853_create_sedes_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033937_create_registro_pagos_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033957_create_clasificacion_pagos_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034007_create_clientes_table.php" />
+        <option value="$PROJECT_DIR$/comandos.txt" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033815_create_autorizacions_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033844_create_articulos_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035032_create_cliente_estados_table.php" />
+        <option value="$PROJECT_DIR$/app/clienteNovedad.php" />
+        <option value="$PROJECT_DIR$/app/clienteEstado.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/app/ClienteEstado.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033844_create_cliente_estados_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033846_create_cliente_novedads_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034115_create_pagos_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035130_create_detalle_cliente_referencias_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035144_create_detalle_estado_facturas_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035210_create_detalle_facturas_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035219_create_estado_facturas_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034115_create_pagos_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035249_create_pago_facturas_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035032_create_cliente_estados_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034958_create_cliente_novedads_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033844_create_articulos_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033902_create_categorias_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035130_create_detalle_cliente_referencias_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033825_create_autorizacions_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033853_create_sedes_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033957_create_clasificacion_pagos_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034032_create_tipo_autorizacions_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033937_create_registro_pagos_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034007_create_clientes_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034123_create_vendedors_table.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/VendedorController.php" />
       </list>
     </option>
   </component>
@@ -179,10 +239,10 @@
       <path value="$PROJECT_DIR$/vendor/namshi/jose" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="137" />
-    <option name="y" value="55" />
-    <option name="width" value="955" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="265" />
+    <option name="y" value="81" />
+    <option name="width" value="945" />
     <option name="height" value="557" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -202,13 +262,20 @@
             <path>
               <item name="backoffice" type="b2602c69:ProjectViewProjectNode" />
               <item name="backoffice" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backoffice" type="b2602c69:ProjectViewProjectNode" />
               <item name="backoffice" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backoffice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backoffice" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -262,16 +329,18 @@
       <workItem from="1578859994333" duration="9845000" />
       <workItem from="1579657005214" duration="4225000" />
       <workItem from="1579736943810" duration="5784000" />
+      <workItem from="1579988369455" duration="11872000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56687000" />
+    <option name="totallyTimeSpent" value="68559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3782921" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14046289" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -297,63 +366,8 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="60" column="71" selection-start-line="60" selection-start-column="71" selection-end-line="60" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="25" />
-          <folding>
-            <element signature="e#23#63#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="158" column="13" selection-start-line="158" selection-start-column="13" selection-end-line="158" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Cors.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Auth/StatefulGuard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/vendedor.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/tipoAutorizacion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/sede.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -376,31 +390,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/cliente.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/clasificacionPago.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/categoria.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/autorizacion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -418,45 +411,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/estadoFactura.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/detalleFactura.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/detalleEstadoFactura.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/detalleClienteReferencia.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/clienteNovedad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/clienteEstado.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -519,13 +477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VendedorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TipoAutorizacionController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
@@ -533,124 +484,258 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_035210_create_detalle_facturas_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033824_create_categorias_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="270">
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_035144_create_detalle_estado_facturas_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033816_create_vendedors_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="254">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding>
+            <element signature="e#7#45#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_035219_create_estado_facturas_table.php">
+    <entry file="file://$PROJECT_DIR$/comandos.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_034115_create_pagos_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_035249_create_pago_facturas_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_035032_create_cliente_estados_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_034958_create_cliente_novedads_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="60">
+          <caret line="4" column="120" selection-start-line="4" selection-start-column="120" selection-end-line="4" selection-end-column="120" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033844_create_articulos_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="349">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033824_create_categorias_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033815_create_autorizacions_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="315">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033810_create_clientes_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="44" column="38" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033811_create_registro_pagos_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033812_create_tipo_autorizacions_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033813_create_clasificacion_pagos_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033814_create_sedes_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/autorizacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/tipoAutorizacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/detalleEstadoFactura.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/estadoFactura.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/clienteCama.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/categoria.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/cliente.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="25" />
+          <folding>
+            <element signature="e#23#63#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/clienteEstado.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/detalleClienteReferencia.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_035219_create_estado_facturas_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_035249_create_pago_facturas_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_035210_create_detalle_facturas_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_035144_create_detalle_estado_facturas_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_035130_create_detalle_cliente_referencias_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033825_create_autorizacions_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033853_create_sedes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033957_create_clasificacion_pagos_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_034032_create_tipo_autorizacions_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033937_create_registro_pagos_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_034007_create_clientes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_034123_create_vendedors_table.php">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_034115_create_pagos_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033846_create_cliente_novedads_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
           <folding>
             <element signature="e#7#45#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ClienteEstado.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/clienteNovedad.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_033844_create_cliente_estados_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding>
+            <element signature="e#7#45#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="980">
+          <caret line="97" column="28" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="145" column="45" selection-start-line="145" selection-start-column="39" selection-end-line="145" selection-end-column="45" />
+          <folding>
+            <element signature="e#40#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VendedorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="119" column="80" selection-start-line="119" selection-start-column="80" selection-end-line="119" selection-end-column="80" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
