@@ -13,10 +13,6 @@ class TipoAutorizacionController extends Controller
 {
     public function index(Request $request){
 
-        //SOLO SE PERMITEN PETICIONES AJAX A NUESTRO CONTROLADOR,
-        //DE LO CONTRARIO REDIRIGE A LA RUTA RAIZ
-        if (!$request->ajax()) return redirect('/');
-
         $buscar = $request->buscar;
         $criterio = $request->criterio;
 
@@ -45,8 +41,6 @@ class TipoAutorizacionController extends Controller
 
     public function mostrarTipoAutorizacion(Request $request){
 
-        if (!$request->ajax()) return redirect('/');
-
         $tipoAutorizacion = tipoAutorizacion::orderBy('id', 'asc')->get();
 
         return [
@@ -56,11 +50,9 @@ class TipoAutorizacionController extends Controller
     }
 
     public function create(Request $request){
-        if (!$request->ajax()) return redirect('/');
     }
 
     public function store(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
@@ -121,10 +113,8 @@ class TipoAutorizacionController extends Controller
 
 
     public function edit(Request $request, $id){
-        if (!$request->ajax()) return redirect('/');
 
         $tipoAutorizacion        = tipoAutorizacion::find($id);
-
 
         return [
             'tipoAutorizacion'  => $tipoAutorizacion,
@@ -133,7 +123,6 @@ class TipoAutorizacionController extends Controller
     }
 
     public function update(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
