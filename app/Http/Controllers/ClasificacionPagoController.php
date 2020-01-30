@@ -116,7 +116,7 @@ class ClasificacionPagoController extends Controller
         //validacion formulario
         $validator = Validator::make($request->all(), [
 
-            'fvcnombre' => 'required|max:100|min:2|unique:tblclasificacionpago',
+            'fvcnombre' => 'required|max:100|min:2|unique:tblclasificacionpago,fvcnombre,'.$request->id,
             'estado' => 'required|max:12',
             'usuario_sesion' => 'required'
 
