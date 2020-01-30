@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAutorizacionsTable extends Migration
+class CreateTipoAutorizacionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateAutorizacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tblautorizacion', function (Blueprint $table) {
+        Schema::create('tbltipoautorizacion', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('fvcdescripcion');
-            $table->date('fvcfechaAutorizacion');
+            $table->string('fvcnombre', 100);
             $table->string('fvcestado', 50);
-            $table->unsignedInteger('fvcusuario_id');
-            $table->unsignedInteger('fvctipoautorizacion_id');
+            $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
-            $table->foreign('fvctipoautorizacion_id')->references('id')->on('tbltipoautorizacion');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreateAutorizacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tblautorizacion');
+        Schema::dropIfExists('tbltipoautorizacion');
     }
 }

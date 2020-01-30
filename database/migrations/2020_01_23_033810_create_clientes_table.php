@@ -42,7 +42,7 @@ class CreateClientesTable extends Migration
             /*$table->string('fvcreferencia2',50);
             $table->string('fvctelefonoref2',50);*/
 
-            $table->unsignedInteger('fvcusuario_id');
+            $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
             $table->integer('clienteestado_id')->unsigned();
 

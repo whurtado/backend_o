@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ClienteNovedad extends Migration
+class CreateSedesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class ClienteNovedad extends Migration
      */
     public function up()
     {
-        Schema::create('tblclientenovedad', function (Blueprint $table) {
+        Schema::create('tblsede', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fdtdescripcion', 150)->nullable();
-            $table->date('fdtfecha');
-            $table->unsignedInteger('fvccliente_id');
-            $table->unsignedInteger('fvcusuario_id');
-            $table->foreign('fvccliente_id')->references('id')->on('tblcliente');
+            $table->string('fvcnombre', 100);
+            $table->string('fvcestado', 50);
+            $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
-
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -32,6 +30,6 @@ class ClienteNovedad extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tblclientenovedad');
+        Schema::dropIfExists('tblsede');
     }
 }
