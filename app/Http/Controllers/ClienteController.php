@@ -20,10 +20,6 @@ class ClienteController extends Controller
     //RUTA INDEX
     public function index(Request $request){
 
-        //SOLO SE PERMITEN PETICIONES AJAX A NUESTRO CONTROLADOR,
-        //DE LO CONTRARIO REDIRIGE A LA RUTA RAIZ
-        if (!$request->ajax()) return redirect('/');
-
         $buscar = $request->buscar;
         $criterio = $request->criterio;
 
@@ -52,12 +48,11 @@ class ClienteController extends Controller
 
     //RUTA STORE
     public function store(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
 
-            'primernombre' => 'required|max:30|min:3',
+            /*'primernombre' => 'required|max:30|min:3',
             'primerapellido' => 'required|max:30|min:3',
             'segundoapellido' => 'required|max:30|min:3',
             'fvcdocumento' => 'required|max:12|unique:tblcliente',
@@ -69,11 +64,11 @@ class ClienteController extends Controller
             'email' => 'required|email|max:50|unique:tblcliente',
             'fechaNacimiento' => 'required',
             'observacion' => 'required',
-            'usuario_sesion' => 'required'
+            'usuario_sesion' => 'required'*/
 
         ]);
 
-
+//return $validator->fails();
 
         if ($validator->fails()) {
 
@@ -118,11 +113,15 @@ class ClienteController extends Controller
 
             $cliente->save();
 
-            $detalles = $request->data;//Array de detalles
+            $detalles =  json_decode($request->data, true);
+            //Array de detalles
             //Recorro todos los elementos
+
+
 
             foreach($detalles as $ep=>$det)
             {
+
                 $detalle = new DetalleClienteReferencia();
                 $detalle->fvccliente_id = $cliente->id;
                 $detalle->dfvid = $ep + 1;
@@ -132,6 +131,7 @@ class ClienteController extends Controller
 
                 $detalle->save();
             }
+
 
             DB::commit();
             return [
@@ -151,13 +151,11 @@ class ClienteController extends Controller
     }
 
     public function create(Request $request){
-        if (!$request->ajax()) return redirect('/');
     }
 
 
     //RUTA EDIT
     public function edit(Request $request, $id){
-        if (!$request->ajax()) return redirect('/');
 
         $cliente        = Cliente::find($id);
         $detallecliente =  DetalleClienteReferencia::where('fvccliente_id', $cliente->id)
@@ -174,12 +172,11 @@ class ClienteController extends Controller
     //RUTA UPDATE
     public function update(Request $request)
     {
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
 
-            'primernombre' => 'required|max:30|min:3',
+            /*'primernombre' => 'required|max:30|min:3',
             'primerapellido' => 'required|max:30|min:3',
             'segundoapellido' => 'required|max:30|min:3',
             'fvcdocumento' => 'required|max:12',
@@ -192,7 +189,7 @@ class ClienteController extends Controller
             'email' => 'required|email|unique:tblcliente,email,' . $request->id,
             'fechaNacimiento' => 'required',
             'observacion' => 'required',
-            'usuario_sesion' => 'required'
+            'usuario_sesion' => 'required'*/
 
         ]);
 
@@ -244,7 +241,7 @@ class ClienteController extends Controller
 
 
 
-            $detalles = $request->data;//Array de detalles
+            $detalles =  json_decode($request->data, true);//Array de detalles
             //Recorro todos los elementos
 
             foreach ($detalles as $ep => $det) {
@@ -278,7 +275,6 @@ class ClienteController extends Controller
     //metodo para mostrar el historico del cambio de estados del cliente
     public function cargarEstadoCliente(Request $request, $id){
 
-        if (!$request->ajax()) return redirect('/');
 
 
         $estado = ClienteEstado::join('tblcliente', 'tblcliente.id', '=', 'tblclienteestado.fvccliente_id')
@@ -301,7 +297,6 @@ class ClienteController extends Controller
 
     public function cambioEstado(Request $request){
 
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
@@ -350,7 +345,6 @@ class ClienteController extends Controller
     //ASIGNACION NOVEDAD CLIENTE
     public function cargarNovedadCliente(Request $request, $id){
 
-        if (!$request->ajax()) return redirect('/');
 
         $estado = ClienteNovedad::join('tblcliente', 'tblcliente.id', '=', 'tblclientenovedad.fvccliente_id')
             ->join('users', 'users.id', '=', 'tblclientenovedad.fvcusuario_id')
@@ -370,7 +364,6 @@ class ClienteController extends Controller
 
     public function asignacionNovedad(Request $request){
 
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
