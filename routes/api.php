@@ -84,9 +84,9 @@ Route::group([
     Route::post('/clientes/registrar', 'ClienteController@store');
     Route::get('/clientes/edit/{cliente}', 'ClienteController@edit');
     Route::put('/clientes/actualizar', 'ClienteController@update');
-    Route::get('/clientes/{cliente}/cargarEstadoCliente', 'ClienteController@cargarEstadoCliente');
+    Route::get('/clientes/cargarEstadoCliente/{cliente}', 'ClienteController@cargarEstadoCliente');
     Route::post('/clientes/cambioEstado', 'ClienteController@cambioEstado');
-    Route::get('/clientes/{cliente}/cargarNovedadCliente', 'ClienteController@cargarNovedadCliente');
+    Route::get('/clientes/cargarNovedadCliente/{cliente}', 'ClienteController@cargarNovedadCliente');
     Route::post('/clientes/asignacionNovedad', 'ClienteController@asignacionNovedad');
 
 
@@ -122,8 +122,8 @@ Route::group([
     Route::post('/pagos/actualizar', 'PagoController@update');
 
     //AUTOCOMPLETE
-    Route::get('/autocomplete', 'Autocomplete@autocomplete');
-    Route::get('/autocomplete/search', 'Autocomplete@autocompleteSearch');
+    Route::get('/autocomplete', 'AutocompleteController@autocomplete');
+    Route::post('/autocomplete/search', 'AutocompleteController@autocompleteSearch');
 
 
     //FACTURA

@@ -297,31 +297,28 @@ class ClienteController extends Controller
 
     public function cambioEstado(Request $request){
 
-
         //validacion formulario
         $validator = Validator::make($request->all(), [
 
             'fvccliente_id' => 'required',
-            'fdtestado' => 'required',
-            'usuario_sesion' => 'required'
+            'fdtestado' => 'required'
         ]);
 
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
                 return response()->json(array(
                     'success' => false,
-                    'message' => 'There are incorect values in the form!',
+                    'message' => 'Hay valores incorrectos en el formulario!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
 
             $this->throwValidationException(
                 $request, $validator
             );
         }
+
+
 
         $cliente = new ClienteEstado();
         $cliente->fvccliente_id  = trim($request->fvccliente_id);
@@ -332,6 +329,7 @@ class ClienteController extends Controller
         $cliente->fdtfecha       = date("Y-m-d");
         $cliente->fvcusuario_id  = $request->fvcusuario_id;
         $cliente->save();
+
 
         $response = array(
             'status' => 'success',
@@ -370,21 +368,18 @@ class ClienteController extends Controller
 
             'fvccliente_id' => 'required',
             'fdtdescripcion' => 'required',
-            'usuario_sesion' => 'required'
 
         ]);
 
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
                 return response()->json(array(
                     'success' => false,
-                    'message' => 'There are incorect values in the form!',
+                    'message' => 'Hay valores incorrectos en el formulario!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator
