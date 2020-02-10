@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTipoAutorizacionsTable extends Migration
+class CreateRegistroPagosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreateTipoAutorizacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbltipoautorizacion', function (Blueprint $table) {
+        Schema::create('tblregistropago', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fvcnombre', 100);
+            $table->string('fvcfactura', 100);
+            $table->float('flngvalorFactura',10);
+            $table->date('fvcfechaPagoFactura');
+            $table->float('flngvalorDeduccion',10);
+            $table->float('flngvalorPagar',10);
+            $table->text('fvcobservacion');
             $table->string('fvcestado', 50);
-            $table->unsignedInteger('fvcusuario_id');
+            $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
             $table->timestamps();
         });
@@ -30,6 +35,6 @@ class CreateTipoAutorizacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbltipoautorizacion');
+        Schema::dropIfExists('tblregistropago');
     }
 }

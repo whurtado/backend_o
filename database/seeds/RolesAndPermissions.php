@@ -18,82 +18,82 @@ class RolesAndPermissions extends Seeder
 
         // create permissions
         //USUARIO
-        Permission::create(['name' => 'create-user']);
-        Permission::create(['name' => 'read-users']);
-        Permission::create(['name' => 'update-user']);
-        Permission::create(['name' => 'delete-user']);
+        Permission::create(['name' => 'crear-user']);
+        Permission::create(['name' => 'ver-users']);
+        Permission::create(['name' => 'editar-user']);
+        //Permission::create(['name' => 'delete-user']);
 
         //ROLES
-        Permission::create(['name' => 'create-role']);
-        Permission::create(['name' => 'read-roles']);
-        Permission::create(['name' => 'update-role']);
-        Permission::create(['name' => 'delete-role']);
+        Permission::create(['name' => 'crear-role']);
+        Permission::create(['name' => 'ver-roles']);
+        Permission::create(['name' => 'editar-role']);
+        //Permission::create(['name' => 'delete-role']);
 
         //VENDEDORES
-        Permission::create(['name' => 'create-vendedor']);
-        Permission::create(['name' => 'read-vendedors']);
-        Permission::create(['name' => 'update-vendedor']);
-        Permission::create(['name' => 'delete-vendedor']);
+        Permission::create(['name' => 'crear-vendedor']);
+        Permission::create(['name' => 'ver-vendedors']);
+        Permission::create(['name' => 'editar-vendedor']);
+        //Permission::create(['name' => 'delete-vendedor']);
 
         //CLIENTE
-        Permission::create(['name' => 'create-cliente']);
-        Permission::create(['name' => 'read-clientes']);
-        Permission::create(['name' => 'update-cliente']);
-        Permission::create(['name' => 'delete-cliente']);
+        Permission::create(['name' => 'crear-cliente']);
+        Permission::create(['name' => 'ver-clientes']);
+        Permission::create(['name' => 'editar-cliente']);
+        //Permission::create(['name' => 'delete-cliente']);
 
         //PAGO
-        Permission::create(['name' => 'create-pago']);
-        Permission::create(['name' => 'read-pagos']);
-        Permission::create(['name' => 'update-pago']);
-        Permission::create(['name' => 'delete-pago']);
+        Permission::create(['name' => 'crear-pago']);
+        Permission::create(['name' => 'ver-pagos']);
+        Permission::create(['name' => 'editar-pago']);
+        // Permission::create(['name' => 'delete-pago']);
 
         //ARTICULO
-        Permission::create(['name' => 'create-articulo']);
-        Permission::create(['name' => 'read-articulos']);
-        Permission::create(['name' => 'update-articulo']);
-        Permission::create(['name' => 'delete-articulo']);
+        Permission::create(['name' => 'crear-articulo']);
+        Permission::create(['name' => 'ver-articulos']);
+        Permission::create(['name' => 'editar-articulo']);
+        //Permission::create(['name' => 'delete-articulo']);
 
         //CATEGORIA
-        Permission::create(['name' => 'create-categoria']);
-        Permission::create(['name' => 'read-categorias']);
-        Permission::create(['name' => 'update-categoria']);
-        Permission::create(['name' => 'delete-categoria']);
+        Permission::create(['name' => 'crear-categoria']);
+        Permission::create(['name' => 'ver-categorias']);
+        Permission::create(['name' => 'editar-categoria']);
+        //Permission::create(['name' => 'delete-categoria']);
 
         //FACTURA
-        Permission::create(['name' => 'create-factura']);
-        Permission::create(['name' => 'read-facturas']);
-        Permission::create(['name' => 'update-factura']);
-        Permission::create(['name' => 'delete-factura']);
+        Permission::create(['name' => 'crear-factura']);
+        Permission::create(['name' => 'ver-facturas']);
+        Permission::create(['name' => 'editar-factura']);
+        //Permission::create(['name' => 'delete-factura']);
 
         //REGISTRO PAGOS
-        Permission::create(['name' => 'create-registropago']);
-        Permission::create(['name' => 'read-registropagos']);
-        Permission::create(['name' => 'update-registropago']);
-        Permission::create(['name' => 'delete-registropago']);
+        Permission::create(['name' => 'crear-registropago']);
+        Permission::create(['name' => 'ver-registropagos']);
+        Permission::create(['name' => 'editar-registropago']);
+        //Permission::create(['name' => 'delete-registropago']);
 
         //CLASIFICACIO PAGO
-        Permission::create(['name' => 'create-claficacionpago']);
-        Permission::create(['name' => 'read-claficacionpagos']);
-        Permission::create(['name' => 'update-claficacionpago']);
-        Permission::create(['name' => 'delete-claficacionpago']);
+        Permission::create(['name' => 'crear-claficacionpago']);
+        Permission::create(['name' => 'ver-claficacionpagos']);
+        Permission::create(['name' => 'editar-claficacionpago']);
+        //Permission::create(['name' => 'delete-claficacionpago']);
 
         //SEDE
-        Permission::create(['name' => 'create-sede']);
-        Permission::create(['name' => 'read-sedes']);
-        Permission::create(['name' => 'update-sede']);
-        Permission::create(['name' => 'delete-sede']);
+        Permission::create(['name' => 'crear-sede']);
+        Permission::create(['name' => 'ver-sedes']);
+        Permission::create(['name' => 'editar-sede']);
+        //Permission::create(['name' => 'delete-sede']);
 
         //AUTORIZACION
-        Permission::create(['name' => 'create-autorizacion']);
-        Permission::create(['name' => 'read-autorizaciones']);
-        Permission::create(['name' => 'update-autorizacion']);
-        Permission::create(['name' => 'delete-autorizacion']);
+        Permission::create(['name' => 'crear-autorizacion']);
+        Permission::create(['name' => 'ver-autorizaciones']);
+        Permission::create(['name' => 'editar-autorizacion']);
+        //Permission::create(['name' => 'delete-autorizacion']);
 
         //TIPO AUTORIZACION
-        Permission::create(['name' => 'create-tipoautorizacion']);
-        Permission::create(['name' => 'read-tipoautorizaciones']);
-        Permission::create(['name' => 'update-tipoautorizacion']);
-        Permission::create(['name' => 'delete-tipoautorizacion']);
+        Permission::create(['name' => 'crear-tipoautorizacion']);
+        Permission::create(['name' => 'ver-tipoautorizaciones']);
+        Permission::create(['name' => 'editar-tipoautorizacion']);
+        //Permission::create(['name' => 'delete-tipoautorizacion']);
 
         /*Permission::create(['name' => 'create permission']);
         Permission::create(['name' => 'read permissions']);
@@ -103,14 +103,14 @@ class RolesAndPermissions extends Seeder
         // create roles and assign created permissions
 
         $role = Role::create(['name' => 'editor']);
-        $role->givePermissionTo('read-users');
-        $role->givePermissionTo('update-user');
+        $role->givePermissionTo('ver-users');
+        $role->givePermissionTo('editar-user');
 
         $role = Role::create(['name' => 'moderador']);
-        $role->givePermissionTo('create-user');
-        $role->givePermissionTo('read-users');
-        $role->givePermissionTo('update-user');
-        $role->givePermissionTo('delete-user');
+        $role->givePermissionTo('crear-user');
+        $role->givePermissionTo('ver-users');
+        $role->givePermissionTo('editar-user');
+        //$role->givePermissionTo('delete-user');
 
         $role = Role::create(['name' => 'admin']);
         $role->givePermissionTo(Permission::all());

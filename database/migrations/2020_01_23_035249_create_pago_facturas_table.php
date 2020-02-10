@@ -22,9 +22,9 @@ class CreatePagoFacturasTable extends Migration
             $table->string('fvcnotarjeta', 100);
             $table->string('fvcdescripciontarjeta', 250);
             //$table->integer('fvccodigo');
-            $table->unsignedInteger('fvcusuario_id');
+            $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
-            $table->foreign('fvcfactura_id')->references('id')->on('tblfactura');
+            //$table->foreign('fvcfactura_id')->references('id')->on('tblfactura');
 
             $table->timestamps();
 

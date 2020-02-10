@@ -15,13 +15,13 @@ class CreateDetalleEstadoFacturasTable extends Migration
     {
         Schema::create('tblestadodetallefactura', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('fvcfactura_id');
+            $table->unsignedBigInteger('fvcfactura_id');
             $table->date('fdtfecha');
             $table->text('fvcnota');
             $table->string('fvcestado', 20);
-            $table->unsignedInteger('fvcusuario_id');
+            $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
-            $table->foreign('fvcfactura_id')->references('id')->on('tblfactura');
+            //$table->foreign('fvcfactura_id')->references('id')->on('tblfactura');
             $table->timestamps();
 
         });

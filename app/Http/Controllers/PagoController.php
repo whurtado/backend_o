@@ -13,10 +13,6 @@ class PagoController extends Controller
 {
     public function index(Request $request){
 
-        //SOLO SE PERMITEN PETICIONES AJAX A NUESTRO CONTROLADOR,
-        //DE LO CONTRARIO REDIRIGE A LA RUTA RAIZ
-        if (!$request->ajax()) return redirect('/');
-
         $buscar = $request->buscar;
         $criterio = $request->criterio;
 
@@ -43,11 +39,11 @@ class PagoController extends Controller
     }
 
     public function create(Request $request){
-        if (!$request->ajax()) return redirect('/');
     }
 
     public function store(Request $request){
-        if (!$request->ajax()) return redirect('/');
+
+        //return $request;
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
@@ -94,7 +90,11 @@ class PagoController extends Controller
             $pago->fvcfactura     = trim($request->factura);
             $pago->fdtfecha       = date("Y-m-d");
             $pago->fintfactura    = 1;
-            $pago->fvcusuario_id  = $request->usuario_sesion;;
+            $pago->fvcusuario_id  = $request->usuario_sesion;
+            $pago->fvcclasificacionpago_id    = 1;
+            $pago->fvcpagofactura_id          = 1;
+            $pago->fvcautorizacion_id         = 1;
+            $pago->fvcsede_id                 = 1;
 
             $pago->save();
 
@@ -118,10 +118,8 @@ class PagoController extends Controller
 
 
     public function edit(Request $request, $id){
-        if (!$request->ajax()) return redirect('/');
 
         $pago        = Pago::find($id);
-
 
         return [
             'pago'  => $pago,
@@ -130,7 +128,6 @@ class PagoController extends Controller
     }
 
     public function update(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
@@ -173,6 +170,11 @@ class PagoController extends Controller
         $pago->fdtfecha       = date("Y-m-d");
         $pago->fintfactura    = 1;
         $pago->fvcusuario_id  = $request->usuario_sesion;
+
+        $pago->fvcclasificacionpago_id    = 1;
+        $pago->fvcpagofactura_id          = 1;
+        $pago->fvcautorizacion_id         = 1;
+        $pago->fvcsede_id                 = 1;
 
 
 

@@ -1,0 +1,5 @@
+//limpiar cache laravel
+1) Ejecute el siguiente comando para borrar la memoria caché de la aplicación Laravel (php artisan cache:clear)
+2) Para borrar la caché de ruta de su aplicación Laravel, ejecute el siguiente comando desde el shell. (php artisan route:clear)
+3) Puede usar config: clear para borrar la caché de configuración de la aplicación Laravel. (php artisan config:clear)
+4) Para borrar los archivos de vista compilados, ejecute el siguiente comando desde el terminal. (php artisan view:clear)

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ClienteEstado extends Migration
+class CreateClasificacionPagosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,17 @@ class ClienteEstado extends Migration
      */
     public function up()
     {
-        Schema::create('tblclienteestado', function (Blueprint $table) {
+        Schema::create('tblclasificacionpago', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('fvccliente_id');
-            $table->date('fdtfecha', 150)->nullable();
-            $table->string('fdtobservacion', 50);
-            $table->string('fdtestado');
-            $table->unsignedInteger('fvcusuario_id');
-            $table->foreign('fvccliente_id')->references('id')->on('tblcliente');
+            $table->string('fvcnombre', 100);
+            $table->text('fvcdescripcion');
+            $table->string('fvcestado', 50);
+            $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
-
-
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -34,6 +31,6 @@ class ClienteEstado extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tblclienteestado');
+        Schema::dropIfExists('tblclasificacionpago');
     }
 }

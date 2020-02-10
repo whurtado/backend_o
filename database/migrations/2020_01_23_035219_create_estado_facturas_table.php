@@ -19,9 +19,9 @@ class CreateEstadoFacturasTable extends Migration
             $table->date('fdtfecha');
             $table->string('fvcestado', 2);
             $table->string('fvcdescripcion', 250);
-            $table->unsignedInteger('fvcusuario_id');
+            $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
-            $table->foreign('fvcfactura_id')->references('id')->on('tblfactura');
+            //$table->foreign('fvcfactura_id')->references('id')->on('tblfactura');
 
             $table->timestamps();
         });
