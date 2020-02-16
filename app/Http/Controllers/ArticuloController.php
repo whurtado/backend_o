@@ -59,42 +59,17 @@ class ArticuloController extends Controller
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
                 return response()->json(array(
                     'success' => false,
                     'message' => 'There are incorect values in the form!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator
             );
         }
-
-        //validar imagen
-
-       if($request->get('fvcimagen')){
-
-
-
-            $image = $request->get('fvcimagen');
-            $image = str_replace('\\','/',$image);
-
-            //$name = $request->fvccodigo_barras.'.' . explode('\/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
-            //$name = $request->fvccodigo_barras.'.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
-
-            $name = $request->fvccodigo_barras.".png";
-            $img = \Image::make($request->get('fvcimagen'))->resize(320, 240)->insert("public//imagenes/articulo/$request->fvccodigo_barras.png");
-
-          //  return $image;
-            //$ruta =\Image::make($request->get('fvcimagen'))->save(public_path('/imagenes/articulo/').$name);
-            $ruta1 = '/imagenes/articulo/';
-
-
-        }
-        //return $name;
 
 
         if($request->fvccantidad == '')$request->fvccantidad =0;
@@ -106,7 +81,7 @@ class ArticuloController extends Controller
         $articulo->fvcdescripcion   = trim($request->descripcion);
         $articulo->flngvalor        = trim($request->valor);
         if($request->get('fvcimagen') !=''){
-            $articulo->fvcimagen = trim($name);
+            $articulo->fvcimagen = $request->get('fvcimagen');
         }
         $articulo->cantidad            = $request->fvccantidad;
         $articulo->flvrequieredeposito = $request->flvrequieredeposito;
@@ -158,14 +133,12 @@ class ArticuloController extends Controller
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
                 return response()->json(array(
                     'success' => false,
                     'message' => 'There are incorect values in the form!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator
@@ -184,7 +157,7 @@ class ArticuloController extends Controller
         $articulo->fvcdescripcion   = trim($request->descripcion);
         $articulo->flngvalor        = $request->valor;
         if($request->get('fvcimagen') !=''){
-            // $articulo->fvcimagen = trim($name);
+             $articulo->fvcimagen = trim($request->get('fvcimagen'));
         }
         $articulo->cantidad            = $request->fvccantidad;
         $articulo->flvrequieredeposito = $request->flvrequieredeposito;
