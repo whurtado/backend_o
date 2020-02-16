@@ -13,10 +13,6 @@ class ClasificacionPagoController extends Controller
 {
     public function index(Request $request){
 
-        //SOLO SE PERMITEN PETICIONES AJAX A NUESTRO CONTROLADOR,
-        //DE LO CONTRARIO REDIRIGE A LA RUTA RAIZ
-        if (!$request->ajax()) return redirect('/');
-
         $buscar = $request->buscar;
         $criterio = $request->criterio;
 
@@ -43,11 +39,9 @@ class ClasificacionPagoController extends Controller
     }
 
     public function create(Request $request){
-        if (!$request->ajax()) return redirect('/');
     }
 
     public function store(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
@@ -107,7 +101,6 @@ class ClasificacionPagoController extends Controller
 
 
     public function edit(Request $request, $id){
-        if (!$request->ajax()) return redirect('/');
 
         $clasificacionPago        = clasificacionPago::find($id);
 
@@ -119,12 +112,11 @@ class ClasificacionPagoController extends Controller
     }
 
     public function update(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
 
-            'fvcnombre' => 'required|max:100|min:2|unique:tblclasificacionpago',
+            'fvcnombre' => 'required|max:100|min:2|unique:tblclasificacionpago,fvcnombre,'.$request->id,
             'estado' => 'required|max:12',
             'usuario_sesion' => 'required'
 

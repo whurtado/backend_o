@@ -24,9 +24,9 @@ class CreateArticulosTable extends Migration
             $table->float('flngvalorDeposito');
 
             $table->text('fvcimagen');
-            $table->unsignedInteger('fvccategoria_id');
-            $table->unsignedInteger('fvcusuario_id');
-            $table->foreign('fvccategoria_id')->references('id')->on('tblcategorias');
+            $table->unsignedBigInteger('fvccategoria_id');
+            $table->unsignedBigInteger('fvcusuario_id');
+            //$table->foreign('fvccategoria_id')->references('id')->on('tblcategorias');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
 
             $table->timestamps();

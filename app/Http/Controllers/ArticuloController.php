@@ -16,10 +16,6 @@ class ArticuloController extends Controller
 
     public function index(Request $request){
 
-        //SOLO SE PERMITEN PETICIONES AJAX A NUESTRO CONTROLADOR,
-        //DE LO CONTRARIO REDIRIGE A LA RUTA RAIZ
-        if (!$request->ajax()) return redirect('/');
-
         $buscar = $request->buscar;
         $criterio = $request->criterio;
 
@@ -46,12 +42,8 @@ class ArticuloController extends Controller
     }
 
     public function store(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
-        //return $request;
-
-
-        //validacion formulario
+        //return explode(':', substr($image, 0, strpos($image, ';')))[1];
         $validator = Validator::make($request->all(), [
 
             'fvcnombre' => 'required|max:100|min:3',
@@ -67,29 +59,18 @@ class ArticuloController extends Controller
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
                 return response()->json(array(
                     'success' => false,
                     'message' => 'There are incorect values in the form!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator
             );
         }
 
-        //validar imagen
-
-        if($request->get('fvcimagen')){
-
-            $image = $request->get('fvcimagen');
-            $name = $request->fvccodigo_barras.'.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
-            $ruta =\Image::make($request->get('fvcimagen'))->save(public_path('/imagenes/articulo/').$name);
-            $ruta1 = '/imagenes/articulo/';
-        }
 
         if($request->fvccantidad == '')$request->fvccantidad =0;
         if($request->flngvalorDeposito == '')$request->flngvalorDeposito =0;
@@ -100,7 +81,7 @@ class ArticuloController extends Controller
         $articulo->fvcdescripcion   = trim($request->descripcion);
         $articulo->flngvalor        = trim($request->valor);
         if($request->get('fvcimagen') !=''){
-            $articulo->fvcimagen = trim($name);
+            $articulo->fvcimagen = $request->get('fvcimagen');
         }
         $articulo->cantidad            = $request->fvccantidad;
         $articulo->flvrequieredeposito = $request->flvrequieredeposito;
@@ -122,12 +103,10 @@ class ArticuloController extends Controller
     }
 
     public function create(Request $request){
-        if (!$request->ajax()) return redirect('/');
     }
 
 
     public function edit(Request $request, $id){
-        if (!$request->ajax()) return redirect('/');
 
         $articulo        = Articulo::find($id)->load('categorias');
 
@@ -139,7 +118,6 @@ class ArticuloController extends Controller
     }
 
     public function update(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
@@ -155,14 +133,12 @@ class ArticuloController extends Controller
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
                 return response()->json(array(
                     'success' => false,
                     'message' => 'There are incorect values in the form!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator
@@ -181,7 +157,7 @@ class ArticuloController extends Controller
         $articulo->fvcdescripcion   = trim($request->descripcion);
         $articulo->flngvalor        = $request->valor;
         if($request->get('fvcimagen') !=''){
-            // $articulo->fvcimagen = trim($name);
+             $articulo->fvcimagen = trim($request->get('fvcimagen'));
         }
         $articulo->cantidad            = $request->fvccantidad;
         $articulo->flvrequieredeposito = $request->flvrequieredeposito;

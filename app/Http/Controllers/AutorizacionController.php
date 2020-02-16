@@ -15,10 +15,6 @@ class AutorizacionController extends Controller
 
     public function index(Request $request){
 
-        //SOLO SE PERMITEN PETICIONES AJAX A NUESTRO CONTROLADOR,
-        //DE LO CONTRARIO REDIRIGE A LA RUTA RAIZ
-        if (!$request->ajax()) return redirect('/');
-
         $buscar = $request->buscar;
         $criterio = $request->criterio;
 
@@ -45,11 +41,11 @@ class AutorizacionController extends Controller
     }
 
     public function create(Request $request){
-        if (!$request->ajax()) return redirect('/');
     }
 
     public function store(Request $request){
-        if (!$request->ajax()) return redirect('/');
+
+        //return $request;
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
@@ -110,7 +106,6 @@ class AutorizacionController extends Controller
 
 
     public function edit(Request $request, $id){
-        if (!$request->ajax()) return redirect('/');
 
         $autorizacion     = autorizacion::find($id)->load('tipoAutorizacion');
         $tipoAutorizacion = DB::table('tbltipoautorizacion')
@@ -128,7 +123,6 @@ class AutorizacionController extends Controller
     }
 
     public function update(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14e86c30-1a6e-46b7-b42f-af34f96a8040" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RolesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RolesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClasificacionPagoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClasificacionPagoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SedeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SedeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TipoAutorizacionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TipoAutorizacionController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +17,47 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="167" column="36" selection-start-line="167" selection-start-column="18" selection-end-line="167" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClasificacionPagoController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VendedorController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="119" column="57" lean-forward="true" selection-start-line="119" selection-end-line="120" />
+              <folding>
+                <element signature="e#40#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="139">
+              <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -25,6 +67,8 @@
       <find>edit</find>
       <find>syncRoles</find>
       <find>Role</find>
+      <find>CreateClienteNovedadsTable</find>
+      <find>update</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -33,14 +77,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserRolesController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserPermissionsController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/RolesController.php" />
-        <option value="$PROJECT_DIR$/app/vendedor.php" />
         <option value="$PROJECT_DIR$/app/tipoAutorizacion.php" />
         <option value="$PROJECT_DIR$/app/sede.php" />
         <option value="$PROJECT_DIR$/app/registroPago.php" />
@@ -64,26 +100,40 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PagoController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RegistroPagoController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/SedeController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/TipoAutorizacionController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VendedorController.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035144_create_detalle_estado_facturas_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035210_create_detalle_facturas_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035219_create_estado_facturas_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034115_create_pagos_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035249_create_pago_facturas_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035032_create_cliente_estados_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034958_create_cliente_novedads_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033844_create_articulos_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033902_create_categorias_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035130_create_detalle_cliente_referencias_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033824_create_categorias_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034958_create_cliente_novedads_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034123_create_vendedors_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034032_create_tipo_autorizacions_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033825_create_autorizacions_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033853_create_sedes_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033957_create_clasificacion_pagos_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034032_create_tipo_autorizacions_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033937_create_registro_pagos_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033957_create_clasificacion_pagos_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034007_create_clientes_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034123_create_vendedors_table.php" />
+        <option value="$PROJECT_DIR$/comandos.txt" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033815_create_autorizacions_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033844_create_articulos_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035032_create_cliente_estados_table.php" />
+        <option value="$PROJECT_DIR$/app/clienteNovedad.php" />
+        <option value="$PROJECT_DIR$/app/clienteEstado.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/app/ClienteEstado.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033844_create_cliente_estados_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_033846_create_cliente_novedads_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_034115_create_pagos_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035130_create_detalle_cliente_referencias_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035144_create_detalle_estado_facturas_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035210_create_detalle_facturas_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035219_create_estado_facturas_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_23_035249_create_pago_facturas_table.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/VendedorController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SedeController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/TipoAutorizacionController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ClasificacionPagoController.php" />
       </list>
     </option>
   </component>
@@ -196,19 +246,31 @@
         <subPane>
           <expand>
             <path>
+              <item name="backend_o" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend_o" type="462c0819:PsiDirectoryNode" />
               <item name="backoffice" type="b2602c69:ProjectViewProjectNode" />
               <item name="backoffice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backoffice" type="b2602c69:ProjectViewProjectNode" />
               <item name="backoffice" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend_o" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend_o" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="backoffice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backoffice" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backoffice" type="b2602c69:ProjectViewProjectNode" />
               <item name="backoffice" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -218,6 +280,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -262,16 +325,21 @@
       <workItem from="1578859994333" duration="9845000" />
       <workItem from="1579657005214" duration="4225000" />
       <workItem from="1579736943810" duration="5715000" />
+      <workItem from="1581308695139" duration="309000" />
+      <workItem from="1579736943810" duration="5784000" />
+      <workItem from="1579988369455" duration="11872000" />
+      <workItem from="1580060758544" duration="6708000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56618000" />
+    <option name="totallyTimeSpent" value="75267000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3782921" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16280925" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -297,17 +365,17 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/app/vendedor.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+    <entry file="file://$PROJECT_DIR$/app/sede.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="60" column="71" selection-start-line="60" selection-start-column="71" selection-end-line="60" selection-end-column="71" />
+        <state relative-caret-position="300">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/auth.php">
+    <entry file="file://$PROJECT_DIR$/app/registroPago.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
           <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
@@ -647,11 +715,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_23_034123_create_vendedors_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding>
-            <element signature="e#7#45#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="109">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
         </state>
       </provider>
     </entry>

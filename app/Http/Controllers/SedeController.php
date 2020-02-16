@@ -15,7 +15,6 @@ class sedeController extends Controller
 
         //SOLO SE PERMITEN PETICIONES AJAX A NUESTRO CONTROLADOR,
         //DE LO CONTRARIO REDIRIGE A LA RUTA RAIZ
-        if (!$request->ajax()) return redirect('/');
 
         $buscar = $request->buscar;
         $criterio = $request->criterio;
@@ -44,8 +43,6 @@ class sedeController extends Controller
 
     public function mostrarSede(Request $request){
 
-        if (!$request->ajax()) return redirect('/');
-
         $sede = sede::orderBy('id', 'asc')->get();
 
         return [
@@ -55,11 +52,9 @@ class sedeController extends Controller
     }
 
     public function create(Request $request){
-        if (!$request->ajax()) return redirect('/');
     }
 
     public function store(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
@@ -96,8 +91,6 @@ class sedeController extends Controller
             $sede->fvcestado     = trim($request->estado);
             $sede->fvcusuario_id = $request->usuario_sesion;
 
-
-
             $sede->save();
 
             DB::commit();
@@ -120,7 +113,6 @@ class sedeController extends Controller
 
 
     public function edit(Request $request, $id){
-        if (!$request->ajax()) return redirect('/');
 
         $sede        = sede::find($id);
 
@@ -132,12 +124,11 @@ class sedeController extends Controller
     }
 
     public function update(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
 
-            'fvcnombre' => 'required|max:100|min:2|unique:tblsede',
+            'fvcnombre' => 'required|max:100|min:2|unique:tblsede,fvcnombre,'.$request->id,
             'estado' => 'required|max:12',
             'usuario_sesion' => 'required'
 

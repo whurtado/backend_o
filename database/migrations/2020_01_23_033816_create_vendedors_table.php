@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegistroPagosTable extends Migration
+class CreateVendedorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateRegistroPagosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tblregistropago', function (Blueprint $table) {
+        Schema::create('tblvendedor', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fvcfactura', 100);
-            $table->float('flngvalorFactura',10);
-            $table->date('fvcfechaPagoFactura');
-            $table->float('flngvalorDeduccion',10);
-            $table->float('flngvalorPagar',10);
-            $table->text('fvcobservacion');
+            $table->string('fvcnombre', 100);
             $table->string('fvcestado', 50);
-            $table->unsignedInteger('fvcusuario_id');
+            $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
             $table->timestamps();
         });
@@ -35,6 +30,6 @@ class CreateRegistroPagosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tblregistropago');
+        Schema::dropIfExists('tblvendedor');
     }
 }

@@ -13,10 +13,6 @@ class VendedorController extends Controller
 {
     public function index(Request $request){
 
-        //SOLO SE PERMITEN PETICIONES AJAX A NUESTRO CONTROLADOR,
-        //DE LO CONTRARIO REDIRIGE A LA RUTA RAIZ
-        if (!$request->ajax()) return redirect('/');
-
         $buscar = $request->buscar;
         $criterio = $request->criterio;
 
@@ -43,11 +39,9 @@ class VendedorController extends Controller
     }
 
     public function create(Request $request){
-        if (!$request->ajax()) return redirect('/');
     }
 
     public function store(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
@@ -61,14 +55,12 @@ class VendedorController extends Controller
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
                 return response()->json(array(
                     'success' => false,
-                    'message' => 'There are incorect values in the form!',
+                    'message' => 'El formulario posee valores incorrectos!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator
@@ -108,7 +100,6 @@ class VendedorController extends Controller
 
 
     public function edit(Request $request, $id){
-        if (!$request->ajax()) return redirect('/');
 
         $vendedor        = Vendedor::find($id);
 
@@ -120,33 +111,34 @@ class VendedorController extends Controller
     }
 
     public function update(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
 
-            'fvcnombre' => 'required|max:100|min:4|unique:tblvendedor',
+            'fvcnombre' => 'required|max:100|min:4|unique:tblvendedor,fvcnombre,'.$request->id,
             'estado' => 'required|max:12',
             'usuario_sesion' => 'required'
 
         ]);
 
 
+
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
+
                 return response()->json(array(
                     'success' => false,
                     'message' => 'There are incorect values in the form!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator
             );
         }
+
+
 
 
         $vendedor =  Vendedor::find($request->id);
