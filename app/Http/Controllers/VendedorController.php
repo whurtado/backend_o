@@ -55,14 +55,12 @@ class VendedorController extends Controller
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
                 return response()->json(array(
                     'success' => false,
-                    'message' => 'There are incorect values in the form!',
+                    'message' => 'El formulario posee valores incorrectos!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator
@@ -127,14 +125,13 @@ class VendedorController extends Controller
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
+
                 return response()->json(array(
                     'success' => false,
                     'message' => 'There are incorect values in the form!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator

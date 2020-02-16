@@ -132,8 +132,8 @@ Route::group([
     Route::post('/ordenservicios/registrar', 'FacturaController@store');
     Route::get('/ordenservicios/edit/{orden}', 'FacturaController@edit');
     Route::post('/ordenservicios/actualizar', 'FacturaController@update');
-    Route::get('/ordenservicios/{genero}/listarArticulos', 'FacturaController@listarArticulos');
-    Route::get('/ordenservicios/{orden}/cargarAbonosOrdenServicio', 'FacturaController@cargarAbonosOrdenServicio');
+    Route::get('/ordenservicios/listarArticulos/{genero}', 'FacturaController@listarArticulos');
+    Route::get('/ordenservicios/cargarAbonosOrdenServicio/{orden}', 'FacturaController@cargarAbonosOrdenServicio');
     Route::post('/ordenservicios/realizarAbono', 'FacturaController@realizarAbono');
 
 

@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Articulo;
+
 
 class FacturaController extends Controller
 {
     //RUTA INDEX
     public function index(Request $request){
-
-        //SOLO SE PERMITEN PETICIONES AJAX A NUESTRO CONTROLADOR,
-        //DE LO CONTRARIO REDIRIGE A LA RUTA RAIZ
-        if (!$request->ajax()) return redirect('/');
 
         $buscar = $request->buscar;
         $criterio = $request->criterio;
@@ -39,11 +37,9 @@ class FacturaController extends Controller
     }
 
     public function create(Request $request){
-        if (!$request->ajax()) return redirect('/');
     }
 
     public function store(Request $request){
-        if (!$request->ajax()) return redirect('/');
 
         //validacion formulario
         $validator = Validator::make($request->all(), [
@@ -65,14 +61,13 @@ class FacturaController extends Controller
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
+
                 return response()->json(array(
                     'success' => false,
                     'message' => 'There are incorect values in the form!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator
@@ -198,7 +193,6 @@ class FacturaController extends Controller
 
     //RUTA EDIT
     public function edit(Request $request, $id){
-        if (!$request->ajax()) return redirect('/');
 
         //$factura       = Factura::find($id);
 
@@ -228,7 +222,6 @@ class FacturaController extends Controller
     //metodo para mostrar el historico del cambio de estados del cliente
     public function cargarAbonosOrdenServicio(Request $request, $codigo){
 
-        if (!$request->ajax()) return redirect('/');
 
 
         $pagofactura = PagoFactura::join('tblfactura', 'tblfactura.fvccodigo', '=', 'tblpagofactura.fvccodigo')
@@ -256,9 +249,6 @@ class FacturaController extends Controller
 
     public function listarArticulos(Request $request, $genero){
 
-        if (!$request->ajax()) return redirect('/');
-
-
         $articulos = Articulo::join('tblcategorias', 'tblcategorias.id', '=', 'tblarticulos.fvccategoria_id')
             ->select(
                 'tblarticulos.id',
@@ -277,8 +267,6 @@ class FacturaController extends Controller
     //metodo para mostrar el historico del cambio de estados del cliente
     public function realizarAbono(Request $request){
 
-        if (!$request->ajax()) return redirect('/');
-
         //validacion formulario
         $validator = Validator::make($request->all(), [
 
@@ -291,14 +279,12 @@ class FacturaController extends Controller
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
                 return response()->json(array(
                     'success' => false,
                     'message' => 'There are incorect values in the form!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator
