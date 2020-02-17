@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\factura;
 use App\Articulo;
+use Validator;
+use Illuminate\Support\Facades\DB;
+use App\PagoFactura;
+use App\DetalleFactura;
 
 
-class FacturaController extends Controller
+
+class facturaController extends Controller
 {
     //RUTA INDEX
     public function index(Request $request){
@@ -15,10 +21,10 @@ class FacturaController extends Controller
         $criterio = $request->criterio;
 
         if ($buscar==''){
-            $factura = Factura::orderBy('id', 'asc')->paginate(7);
+            $factura = factura::orderBy('id', 'asc')->paginate(7);
         }
         else{
-            $factura = Factura::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(7);
+            $factura = factura::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(7);
         }
 
 
@@ -41,17 +47,19 @@ class FacturaController extends Controller
 
     public function store(Request $request){
 
+       // return $request;
+
         //validacion formulario
         $validator = Validator::make($request->all(), [
 
-            'nombre' => 'required|max:30|min:3',
+            /*'nombre' => 'required|max:30|min:3',*/
             'genero' => 'required|max:12',
             'sede' => 'required|min:3',
             'total' => 'required|max:10|min:3',
             'fecha_entrega' => 'required|max:12',
             'fecha_devolucion' => 'required|min:10',
             'fecha_prueba' => 'required|max:100|min:3',
-            'codigo' => 'required',
+           'codigo' => 'required',
             'cliente' => 'required',
             'vendedor' => 'required',
             'usuario_sesion' => 'required'
@@ -83,7 +91,7 @@ class FacturaController extends Controller
             $fechaprueba  = $request->fecha_prueba." ".$request->hora_prueba;
 
 
-            $factura = new Factura();
+            $factura = new factura();
             $factura->fvcnombre             = trim($request->usuario_referido);
             $factura->fvcgenero             = trim($request->genero);
             $factura->fvcsede               = trim($request->sede);
@@ -109,6 +117,8 @@ class FacturaController extends Controller
             $factura->fvccliente_id         = trim($request->cliente);
             $factura->fvcvendedor_id        = trim($request->vendedor);
             $factura->fvcpagodeposito_id    = 1;
+            $factura->fvcsede_id            = 1;
+
 
             $factura->save();
 
@@ -116,20 +126,24 @@ class FacturaController extends Controller
 
             /* REALIZAR PAGO DE ABONO*/
 
-            if ($request->abono > 0){
+            $detalleAbono =  json_decode($request->dataAbonos, true);//Array de detalles
 
-                $pagoFactura = new PagoFactura();
-                $pagoFactura->fvcfactura_id          = $factura->id;
-                $pagoFactura->flngvalor              = $request->abono;
-                $pagoFactura->fdtfecha               = date("Y-m-d");
-                $pagoFactura->fvcformapago           = trim($request->formapago);
-                $pagoFactura->fvcnotarjeta           = trim($request->no_tarjeta);
-                $pagoFactura->fvcdescripciontarjeta  = trim($request->descripcion_tarjeta);
-                //$pagoFactura->fvccodigo              = $request->codigo;
-                $pagoFactura->fvcusuario_id          = $request->usuario_sesion;
+            //Recorro todos los elementos
 
+            foreach($detalleAbono as $ep=>$det)
+            {
 
-                $pagoFactura->save();
+                $pagofactura = new Pagofactura();
+                $pagofactura->fvcfactura_id          = $factura->id;
+                $pagofactura->fvctipoAbono           = $det['tipoAbono'];
+                $pagofactura->flngvalor              = $det['valor'];
+                $pagofactura->fdtfecha               = date("Y-m-d");
+                $pagofactura->fvcformapago           = trim($det['formaPago']);
+                $pagofactura->fvcnotarjeta           = trim($det['numeroTarjeta']);
+                $pagofactura->fvcdescripciontarjeta  = trim($det['descripcion']);
+                //$pagofactura->fvccodigo              = $request->codigo;
+                $pagofactura->fvcusuario_id          = $request->usuario_sesion;
+                $pagofactura->save();
 
             }
 
@@ -139,12 +153,13 @@ class FacturaController extends Controller
 
 
             /* REALIZAR GRABADO DE DETALLE */
-            $detalles = $request->data;//Array de detalles
+            $detalles =  json_decode($request->data, true);//Array de detalles
+
             //Recorro todos los elementos
 
             foreach($detalles as $ep=>$det)
             {
-                $detalle = new DetalleFactura();
+                $detalle = new Detallefactura();
                 $detalle->fvcfactura_id  = $factura->id;
                 // $detalle->dfvid          = $ep + 1;
                 $detalle->fvcarticulo_id = 1;
@@ -155,16 +170,8 @@ class FacturaController extends Controller
                 $detalle->fvcestadoprenda  = 'POR ENTREGAR';
                 $detalle->fvcnota    = 'prueba';
                 $detalle->fvcestado = 'NO';
-                $pagoFactura->fvcusuario_id          = $request->usuario_sesion;
+                $pagofactura->fvcusuario_id          = $request->usuario_sesion;
 
-
-                /* if($det['nota']!= ''){
-                     $detalle->fvcnota    = $det['nota'];
-                 }
-
-                 if($det['estado']!= ''){
-                     $detalle->fvcestadoprenda  = 'POR ENTREGAR';
-                 }*/
                 $detalle->fvcusuario_id  = 1;
                 $detalle->save();
 
@@ -194,7 +201,7 @@ class FacturaController extends Controller
     //RUTA EDIT
     public function edit(Request $request, $id){
 
-        //$factura       = Factura::find($id);
+        //$factura       = factura::find($id);
 
         $factura = DB::table('tblfactura')
             ->join('tblcliente', 'tblfactura.fvccliente_id', '=', 'tblcliente.id')
@@ -224,7 +231,7 @@ class FacturaController extends Controller
 
 
 
-        $pagofactura = PagoFactura::join('tblfactura', 'tblfactura.fvccodigo', '=', 'tblpagofactura.fvccodigo')
+        $pagofactura = Pagofactura::join('tblfactura', 'tblfactura.fvccodigo', '=', 'tblpagofactura.fvccodigo')
             ->join('tblcliente', 'tblcliente.id', '=', 'tblfactura.fvccliente_id')
             ->select(
                 'tblpagofactura.id',
@@ -292,16 +299,16 @@ class FacturaController extends Controller
         }
 
 
-        $pagoFactura = new PagoFactura();
-        $pagoFactura->fvcfactura_id          = 10;
-        $pagoFactura->flngvalor              = $request->abono;
-        $pagoFactura->fdtfecha               = date("Y-m-d");
-        $pagoFactura->fvcformapago           = trim($request->formapago);
-        $pagoFactura->fvcnotarjeta           = trim($request->no_tarjeta);
-        $pagoFactura->fvcdescripciontarjeta  = trim($request->descripcion_tarjeta);
-        $pagoFactura->fvccodigo              = $request->codigo;
-        $pagoFactura->fvcusuario_id          = $request->usuario_sesion;
-        $pagoFactura->save();
+        $pagofactura = new Pagofactura();
+        $pagofactura->fvcfactura_id          = 10;
+        $pagofactura->flngvalor              = $request->abono;
+        $pagofactura->fdtfecha               = date("Y-m-d");
+        $pagofactura->fvcformapago           = trim($request->formapago);
+        $pagofactura->fvcnotarjeta           = trim($request->no_tarjeta);
+        $pagofactura->fvcdescripciontarjeta  = trim($request->descripcion_tarjeta);
+        $pagofactura->fvccodigo              = $request->codigo;
+        $pagofactura->fvcusuario_id          = $request->usuario_sesion;
+        $pagofactura->save();
 
         $response = array(
             'status' => 'success',
