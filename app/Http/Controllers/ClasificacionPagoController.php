@@ -13,28 +13,32 @@ class ClasificacionPagoController extends Controller
 {
     public function index(Request $request){
 
-        $buscar = $request->buscar;
-        $criterio = $request->criterio;
+        $clasificacionPago = DB::table('tblclasificacionpago');
 
-        if ($buscar==''){
-            $clasificacionPago = clasificacionPago::orderBy('id', 'asc')->paginate(2);
+        if ($request->fvcnombre != '' && $request->fvcnombre != 'null' ) {
+            $clasificacionPago->where('fvcnombre', 'like', '%'.$request->fvcnombre. '%');
         }
-        else{
-            $clasificacionPago = clasificacionPago::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(2);
+
+        if ($request->estado != '' && $request->estado != 'null') {
+
+            $clasificacionPago->where('fvcestado', '=', $request->estado);
         }
+
+        if ($request->sede_creacion != '' && $request->sede_creacion != 'null') {
+
+            $clasificacionPago->where('fvcsede_creacion', '=', $request->sede_creacion);
+        }
+
+        $clasificacionPago = $clasificacionPago->get();
+
 
 
         return [
-            'pagination' => [
-                'total'        => $clasificacionPago->total(),
-                'current_page' => $clasificacionPago->currentPage(),
-                'per_page'     => $clasificacionPago->perPage(),
-                'last_page'    => $clasificacionPago->lastPage(),
-                'from'         => $clasificacionPago->firstItem(),
-                'to'           => $clasificacionPago->lastItem(),
-            ],
             'clasificacionPago' => $clasificacionPago
         ];
+
+
+
 
     }
 
@@ -78,6 +82,7 @@ class ClasificacionPagoController extends Controller
             $clasificacionPago->fvcdescripcion = trim($request->fvcdescripcion);
             $clasificacionPago->fvcestado      = trim($request->estado);
             $clasificacionPago->fvcusuario_id  = $request->usuario_sesion;
+            $clasificacionPago->fvcsede_creacion    = $request->sede_creacion;
 
             $clasificacionPago->save();
 
@@ -145,6 +150,7 @@ class ClasificacionPagoController extends Controller
         $clasificacionPago->fvcdescripcion = trim($request->fvcdescripcion);
         $clasificacionPago->fvcestado     = trim($request->estado);
         $clasificacionPago->fvcusuario_id = $request->usuario_sesion;
+        $clasificacionPago->fvcsede_creacion    = $request->sede_creacion;
 
         $clasificacionPago->save();
 

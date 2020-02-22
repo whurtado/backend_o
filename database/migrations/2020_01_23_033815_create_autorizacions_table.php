@@ -20,6 +20,7 @@ class CreateAutorizacionsTable extends Migration
             $table->string('fvcestado', 50);
             $table->unsignedBigInteger('fvcusuario_id');
             $table->unsignedBigInteger('fvctipoautorizacion_id');
+            $table->integer('fvcsede_creacion');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
             //$table->foreign('fvctipoautorizacion_id')->references('id')->on('tbltipoautorizacion');
             $table->timestamps();

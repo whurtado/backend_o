@@ -42,6 +42,7 @@ class CreateFacturasTable extends Migration
             $table->unsignedBigInteger('fvcusuario_id');
             $table->unsignedBigInteger('fvcvendedor_id');
             $table->unsignedBigInteger('fvcsede_id');
+            $table->integer('fvcsede_creacion');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
             /*$table->foreign('fvccliente_id')->references('id')->on('tblcliente');
             $table->foreign('fvcvendedor_id')->references('id')->on('tblvendedor');

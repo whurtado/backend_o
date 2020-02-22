@@ -16,28 +16,34 @@ class ArticuloController extends Controller
 
     public function index(Request $request){
 
-        $buscar = $request->buscar;
-        $criterio = $request->criterio;
+        $articulo = DB::table('tblarticulos');
 
-        if ($buscar==''){
-            $articulo = Articulo::orderBy('id', 'asc')->paginate(7);
-        }
-        else{
-            $articulo = Articulo::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(7);
+        if ($request->categoria != '' && $request->categoria != 'null') {
+
+            $articulo->where('fvccategoria_id', '=', $request->categoria);
         }
 
+        if ($request->fvcnombre != '' && $request->fvcnombre != 'null') {
+
+            $articulo->where('fvcnombre', '=', $request->fvcnombre);
+        }
+
+        if ($request->flvrequieredeposito != '' && $request->flvrequieredeposito != 'null' &&  $request->flvrequieredeposito != null) {
+
+            $articulo->where('flvrequieredeposito', '=', $request->flvrequieredeposito);
+        }
+
+        if ($request->valor != '' && $request->valor != 'null') {
+
+            $articulo->where('flngvalor', '=', $request->valor);
+        }
+
+        $articulo = $articulo->get();
 
         return [
-            'pagination' => [
-                'total'        => $articulo->total(),
-                'current_page' => $articulo->currentPage(),
-                'per_page'     => $articulo->perPage(),
-                'last_page'    => $articulo->lastPage(),
-                'from'         => $articulo->firstItem(),
-                'to'           => $articulo->lastItem(),
-            ],
             'articulo' => $articulo
         ];
+
 
     }
 
@@ -88,6 +94,7 @@ class ArticuloController extends Controller
         $articulo->flngvalorDeposito   = $request->flngvalorDeposito;
         $articulo->fvccategoria_id     = $request->categoria;
         $articulo->fvcusuario_id       = $request->usuario_sesion;
+        $articulo->fvcsede_creacion    = $request->sede_creacion;
 
 
         $articulo->save();
@@ -164,6 +171,8 @@ class ArticuloController extends Controller
         $articulo->flngvalorDeposito   = $request->flngvalorDeposito;
         $articulo->fvccategoria_id     = $request->categoria;
         $articulo->fvcusuario_id       = $request->usuario_sesion;
+        $articulo->fvcsede_creacion    = $request->sede_creacion;
+
         $articulo->save();
 
 

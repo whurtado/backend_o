@@ -19,6 +19,7 @@ class CreateCategoriasTable extends Migration
             $table->string('fvcgenero', 10);
             $table->string('fvcdescripcion', 150)->nullable();
             $table->unsignedBigInteger('fvcusuario_id');
+            $table->integer('fvcsede_creacion');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
             $table->timestamps();
         });

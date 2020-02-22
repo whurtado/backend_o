@@ -24,6 +24,7 @@ class CreateDetalleFacturasTable extends Migration
             $table->string('fvcestadoprenda', 20);
             $table->text('fvcnota');
             $table->string('fvcestado', 2);
+            $table->integer('fvcsede_creacion');
             $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
             //$table->foreign('fvcfactura_id')->references('id')->on('tblfactura');

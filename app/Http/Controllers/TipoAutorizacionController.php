@@ -13,26 +13,26 @@ class TipoAutorizacionController extends Controller
 {
     public function index(Request $request){
 
-        $buscar = $request->buscar;
-        $criterio = $request->criterio;
+        $tipoAutorizacion = DB::table('tbltipoautorizacion');
 
-        if ($buscar==''){
-            $tipoAutorizacion = tipoAutorizacion::orderBy('id', 'asc')->paginate(2);
+        if ($request->fvcnombre != '' && $request->fvcnombre != 'null' ) {
+            $tipoAutorizacion->where('fvcnombre', 'like', '%'.$request->fvcnombre. '%');
         }
-        else{
-            $tipoAutorizacion = tipoAutorizacion::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(2);
+
+        if ($request->estado != '' && $request->estado != 'null') {
+
+            $tipoAutorizacion->where('fvcestado', '=', $request->estado);
         }
+
+        if ($request->sede_creacion != '' && $request->sede_creacion != 'null') {
+
+            $tipoAutorizacion->where('fvcsede_creacion', '=', $request->sede_creacion);
+        }
+
+        $tipoAutorizacion = $tipoAutorizacion->get();
 
 
         return [
-            'pagination' => [
-                'total'        => $tipoAutorizacion->total(),
-                'current_page' => $tipoAutorizacion->currentPage(),
-                'per_page'     => $tipoAutorizacion->perPage(),
-                'last_page'    => $tipoAutorizacion->lastPage(),
-                'from'         => $tipoAutorizacion->firstItem(),
-                'to'           => $tipoAutorizacion->lastItem(),
-            ],
             'tipoAutorizacion' => $tipoAutorizacion
         ];
 
@@ -85,9 +85,10 @@ class TipoAutorizacionController extends Controller
             DB::beginTransaction();
 
             $tipoAutorizacion = new tipoAutorizacion();
-            $tipoAutorizacion->fvcnombre     = trim($request->fvcnombre);
-            $tipoAutorizacion->fvcestado     = trim($request->estado);
-            $tipoAutorizacion->fvcusuario_id = $request->usuario_sesion;
+            $tipoAutorizacion->fvcnombre         = trim($request->fvcnombre);
+            $tipoAutorizacion->fvcestado         = trim($request->estado);
+            $tipoAutorizacion->fvcusuario_id     = $request->usuario_sesion;
+            $tipoAutorizacion->fvcsede_creacion  = $request->sede_creacion;
 
 
 
@@ -151,10 +152,11 @@ class TipoAutorizacionController extends Controller
         }
 
 
-        $tipoAutorizacion =  tipoAutorizacion::find($request->id);
-        $tipoAutorizacion->fvcnombre     = trim($request->fvcnombre);
-        $tipoAutorizacion->fvcestado     = trim($request->estado);
-        $tipoAutorizacion->fvcusuario_id = $request->usuario_sesion;
+        $tipoAutorizacion                    =  tipoAutorizacion::find($request->id);
+        $tipoAutorizacion->fvcnombre         = trim($request->fvcnombre);
+        $tipoAutorizacion->fvcestado         = trim($request->estado);
+        $tipoAutorizacion->fvcusuario_id     = $request->usuario_sesion;
+        $tipoAutorizacion->fvcsede_creacion  = $request->sede_creacion;
 
         $tipoAutorizacion->save();
 

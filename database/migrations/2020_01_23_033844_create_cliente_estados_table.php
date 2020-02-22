@@ -19,6 +19,7 @@ class CreateClienteEstadosTable extends Migration
             $table->date('fdtfecha', 150)->nullable();
             $table->string('fdtobservacion', 50);
             $table->string('fdtestado');
+            $table->integer('fvcsede_creacion');
             $table->unsignedBigInteger('fvcusuario_id');
             //$table->foreign('fvccliente_id')->references('id')->on('tblcliente');
             $table->foreign('fvcusuario_id')->references('id')->on('users');

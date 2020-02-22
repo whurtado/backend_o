@@ -39,6 +39,8 @@ class CreateClientesTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->date('fvcfechacumpleano');
             $table->string('fvcestado',20)->nullable();
+            $table->integer('fvcsede_creacion');
+
             /*$table->string('fvcreferencia2',50);
             $table->string('fvctelefonoref2',50);*/
 

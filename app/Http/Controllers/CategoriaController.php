@@ -13,26 +13,26 @@ class CategoriaController extends Controller
 {
     public function index(Request $request){
 
-        $buscar = $request->buscar;
-        $criterio = $request->criterio;
+        $categoria = DB::table('tblcategorias');
 
-        if ($buscar==''){
-            $categoria = Categoria::orderBy('id', 'asc')->paginate(7);
+        if ($request->fvcnombre != '' && $request->fvcnombre != 'null' ) {
+            $categoria->where('fvcnombre', 'like', '%'.$request->fvcnombre. '%');
         }
-        else{
-            $categoria = Categoria::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(7);
+
+        if ($request->genero != '' && $request->genero != 'null') {
+
+            $categoria->where('fvcgenero', '=', $request->genero);
         }
+
+        if ($request->sede_creacion != '' && $request->sede_creacion != 'null') {
+
+            $categoria->where('fvcsede_creacion', '=', $request->sede_creacion);
+        }
+
+        $categoria = $categoria->get();
 
 
         return [
-            'pagination' => [
-                'total'        => $categoria->total(),
-                'current_page' => $categoria->currentPage(),
-                'per_page'     => $categoria->perPage(),
-                'last_page'    => $categoria->lastPage(),
-                'from'         => $categoria->firstItem(),
-                'to'           => $categoria->lastItem(),
-            ],
             'categoria' => $categoria
         ];
 
@@ -70,6 +70,7 @@ class CategoriaController extends Controller
         $categoria->fvcgenero      = $request->genero;
         $categoria->fvcdescripcion = trim($request->descripcion);
         $categoria->fvcusuario_id  = $request->usuario_sesion;
+        $categoria->fvcsede_creacion    = $request->sede_creacion;
 
         $categoria->save();
 
@@ -130,6 +131,7 @@ class CategoriaController extends Controller
         $categoria->fvcgenero      = $request->genero;
         $categoria->fvcdescripcion = trim($request->descripcion);
         $categoria->fvcusuario_id  = $request->usuario_sesion;
+        $categoria->fvcsede_creacion    = $request->sede_creacion;
 
         $categoria->save();
 
@@ -140,5 +142,17 @@ class CategoriaController extends Controller
         );
 
         return $response;
+    }
+
+
+    public function categoriasSinFiltros(Request $request){
+
+
+        $categoria = Categoria::orderBy('id', 'asc')->get();
+
+        return [
+            'categoria' => $categoria
+        ];
+
     }
 }

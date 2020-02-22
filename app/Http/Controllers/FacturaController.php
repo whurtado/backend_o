@@ -17,26 +17,57 @@ class facturaController extends Controller
     //RUTA INDEX
     public function index(Request $request){
 
-        $buscar = $request->buscar;
-        $criterio = $request->criterio;
+        $factura = DB::table('tblfactura');
 
-        if ($buscar==''){
-            $factura = factura::orderBy('id', 'asc')->paginate(7);
+
+
+        if ($request->estado != '' && $request->estado != 'null') {
+
+            $factura->where('fvcestado', '=', $request->estado);
         }
-        else{
-            $factura = factura::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(7);
+
+        if ($request->vendedor != '' && $request->vendedor != 'null' ) {
+            $factura->where('fvcvendedor_id', '=', $request->vendedor);
+
         }
+
+        if ($request->fecha == 'Creacion' ) {
+            $factura->whereBetween('created_at', [$request->fecha_inicial, $request->fecha_final]);
+        }
+
+        if ($request->fecha == 'Entrega' ) {
+            $factura->whereBetween('fdtfechaentrega', [$request->fecha_inicial, $request->fecha_final]);
+        }
+
+        if ($request->fecha == 'Prueba' ) {
+            $factura->whereBetween('fdtfechaprueba', [$request->fecha_inicial, $request->fecha_final]);
+        }
+
+        if ($request->genero != '' && $request->genero != 'null' ) {
+            $factura->where('fvcvendedor_id', '=', $request->vendedor);
+
+        }
+
+        if ($request->confesion != '' && $request->confesion != 'null' ) {
+            $factura->where('fvcconfesion', '=', $request->confesion);
+
+        }
+
+        if ($request->articulo != '' && $request->articulo != 'null' ) {
+            $factura->where('fvcvendedor_id', '=', $request->articulo);
+
+        }
+
+        if ($request->ficha != '' && $request->ficha != 'null' ) {
+            $factura->where('fvcficha', '=', $request->ficha);
+        }
+
+
+        $factura = $factura->get();
+
 
 
         return [
-            'pagination' => [
-                'total'        => $factura->total(),
-                'current_page' => $factura->currentPage(),
-                'per_page'     => $factura->perPage(),
-                'last_page'    => $factura->lastPage(),
-                'from'         => $factura->firstItem(),
-                'to'           => $factura->lastItem(),
-            ],
             'factura' => $factura
         ];
 
@@ -117,7 +148,8 @@ class facturaController extends Controller
             $factura->fvccliente_id         = trim($request->cliente);
             $factura->fvcvendedor_id        = trim($request->vendedor);
             $factura->fvcpagodeposito_id    = 1;
-            $factura->fvcsede_id            = 1;
+            $factura->fvcsede_id            = $request->sede_creacion;
+            $factura->fvcsede_creacion       = $request->sede_creacion;
 
 
             $factura->save();
@@ -143,6 +175,9 @@ class facturaController extends Controller
                 $pagofactura->fvcdescripciontarjeta  = trim($det['descripcion']);
                 //$pagofactura->fvccodigo              = $request->codigo;
                 $pagofactura->fvcusuario_id          = $request->usuario_sesion;
+                $pagofactura->fvcsede_creacion       = $request->sede_creacion;
+
+
                 $pagofactura->save();
 
             }
@@ -170,7 +205,8 @@ class facturaController extends Controller
                 $detalle->fvcestadoprenda  = 'POR ENTREGAR';
                 $detalle->fvcnota    = 'prueba';
                 $detalle->fvcestado = 'NO';
-                $pagofactura->fvcusuario_id          = $request->usuario_sesion;
+                $detalle->fvcusuario_id          = $request->usuario_sesion;
+                $detalle->fvcsede_creacion       = $request->sede_creacion;
 
                 $detalle->fvcusuario_id  = 1;
                 $detalle->save();
@@ -308,6 +344,8 @@ class facturaController extends Controller
         $pagofactura->fvcdescripciontarjeta  = trim($request->descripcion_tarjeta);
         $pagofactura->fvccodigo              = $request->codigo;
         $pagofactura->fvcusuario_id          = $request->usuario_sesion;
+        $pagofactura->fvcsede_creacion       = $request->sede_creacion;
+
         $pagofactura->save();
 
         $response = array(

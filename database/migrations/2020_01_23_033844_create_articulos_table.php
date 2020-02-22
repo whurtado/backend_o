@@ -26,6 +26,8 @@ class CreateArticulosTable extends Migration
             $table->text('fvcimagen');
             $table->unsignedBigInteger('fvccategoria_id');
             $table->unsignedBigInteger('fvcusuario_id');
+            $table->integer('fvcsede_creacion');
+
             //$table->foreign('fvccategoria_id')->references('id')->on('tblcategorias');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
 

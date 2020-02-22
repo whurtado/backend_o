@@ -16,26 +16,20 @@ class sedeController extends Controller
         //SOLO SE PERMITEN PETICIONES AJAX A NUESTRO CONTROLADOR,
         //DE LO CONTRARIO REDIRIGE A LA RUTA RAIZ
 
-        $buscar = $request->buscar;
-        $criterio = $request->criterio;
+        $sede = DB::table('tblsede');
 
-        if ($buscar==''){
-            $sede = sede::orderBy('id', 'asc')->paginate(2);
-        }
-        else{
-            $sede = sede::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(2);
+        if ($request->fvcnombre != '' && $request->fvcnombre != 'null' ) {
+            $sede->where('fvcnombre', 'like', '%'.$request->fvcnombre. '%');
         }
 
+        if ($request->estado != '' && $request->estado != 'null') {
+
+            $sede->where('fvcestado', '=', $request->estado);
+        }
+
+        $sede = $sede->get();
 
         return [
-            'pagination' => [
-                'total'        => $sede->total(),
-                'current_page' => $sede->currentPage(),
-                'per_page'     => $sede->perPage(),
-                'last_page'    => $sede->lastPage(),
-                'from'         => $sede->firstItem(),
-                'to'           => $sede->lastItem(),
-            ],
             'sede' => $sede
         ];
 

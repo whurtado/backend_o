@@ -28,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('fvcsede_id')->nullable();
+            $table->integer('fvcsede_creacion');
+
             //$table->foreign('fvcsede_id')->references('id')->on('tblsede');
 
                    $table->rememberToken();
