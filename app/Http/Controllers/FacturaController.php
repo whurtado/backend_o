@@ -17,11 +17,13 @@ class facturaController extends Controller
     //RUTA INDEX
     public function index(Request $request){
 
+       // return $request;
+
         $factura = DB::table('tblfactura');
 
 
 
-        if ($request->estado != '' && $request->estado != 'null') {
+        if ($request->estado != '' && $request->estado != 'null'  && $request->estado != null) {
 
             $factura->where('fvcestado', '=', $request->estado);
         }
@@ -31,31 +33,35 @@ class facturaController extends Controller
 
         }
 
-        if ($request->fecha == 'Creacion' ) {
+        if ($request->fecha == 'Creacion'
+            && ($request->fecha_inicial !='' && $request->fecha_inicial !='null')
+            && ($request->fecha_final !='' && $request->fecha_final !='null') ) {
             $factura->whereBetween('created_at', [$request->fecha_inicial, $request->fecha_final]);
         }
 
-        if ($request->fecha == 'Entrega' ) {
+        if ($request->fecha == 'Entrega'
+            && ($request->fecha_inicial !='' && $request->fecha_inicial !='null')
+            && ($request->fecha_final !='' && $request->fecha_final !='null') ) {
             $factura->whereBetween('fdtfechaentrega', [$request->fecha_inicial, $request->fecha_final]);
         }
 
-        if ($request->fecha == 'Prueba' ) {
+        if ($request->fecha == 'Prueba'
+            && ($request->fecha_inicial !='' && $request->fecha_inicial !='null')
+            && ($request->fecha_final !='' && $request->fecha_final !='null') ) {
             $factura->whereBetween('fdtfechaprueba', [$request->fecha_inicial, $request->fecha_final]);
         }
 
-        if ($request->genero != '' && $request->genero != 'null' ) {
+        if ($request->genero != '' && $request->genero != 'null' && $request->genero != null ) {
             $factura->where('fvcvendedor_id', '=', $request->vendedor);
 
         }
 
-        if ($request->confesion != '' && $request->confesion != 'null' ) {
+        if ($request->confesion != '' && $request->confesion != 'null'  && $request->confesion != null ) {
             $factura->where('fvcconfesion', '=', $request->confesion);
-
         }
 
         if ($request->articulo != '' && $request->articulo != 'null' ) {
             $factura->where('fvcvendedor_id', '=', $request->articulo);
-
         }
 
         if ($request->ficha != '' && $request->ficha != 'null' ) {
@@ -64,7 +70,6 @@ class facturaController extends Controller
 
 
         $factura = $factura->get();
-
 
 
         return [
@@ -132,7 +137,7 @@ class facturaController extends Controller
             $factura->fdtfecharetorno       = trim($request->fecha_devolucion);
             $factura->fvcobservacion        = $request->observacion;
             $factura->fdtfecha              = date("Y-m-d");
-            $factura->fvcestado             = 'SI';//trim($request->estado);
+            $factura->fvcestado             = trim($request->estado);
             $factura->fvctraje              = trim($request->traje);
             $factura->fdtfechaprueba        = $fechaprueba;
             $factura->fvccodigo             = trim($request->codigo);
