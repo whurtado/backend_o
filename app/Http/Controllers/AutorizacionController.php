@@ -15,26 +15,28 @@ class AutorizacionController extends Controller
 
     public function index(Request $request){
 
-        $buscar = $request->buscar;
-        $criterio = $request->criterio;
+        $autorizacion = DB::table('tblautorizacion')
+            ->join('tbltipoautorizacion', 'tblautorizacion.fvctipoautorizacion_id', '=', 'tbltipoautorizacion.id')
+            ->select('tblautorizacion.*', 'tbltipoautorizacion.fvcnombre as tipoAutorizacion') ;
 
-        if ($buscar==''){
-            $autorizacion = autorizacion::orderBy('id', 'asc')->paginate(2);
+        if ($request->fvcdescripcion != '' && $request->fvcdescripcion != 'null' ) {
+            $autorizacion->where('fvcdescripcion', 'like', '%'.$request->fvcdescripcion. '%');
         }
-        else{
-            $autorizacion = autorizacion::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(2);
+
+        if ($request->fvctipoautorizacion_id != '' && $request->fvctipoautorizacion_id != 'null') {
+
+            $autorizacion->where('fvctipoautorizacion_id', '=', $request->fvctipoautorizacion_id);
         }
+
+        if ($request->fvcfechaAutorizacion != '' && $request->fvcfechaAutorizacion != 'null') {
+
+            $autorizacion->where('fvcfechaAutorizacion', '=', $request->fvcfechaAutorizacion);
+        }
+
+        $autorizacion = $autorizacion->get();
 
 
         return [
-            'pagination' => [
-                'total'        => $autorizacion->total(),
-                'current_page' => $autorizacion->currentPage(),
-                'per_page'     => $autorizacion->perPage(),
-                'last_page'    => $autorizacion->lastPage(),
-                'from'         => $autorizacion->firstItem(),
-                'to'           => $autorizacion->lastItem(),
-            ],
             'autorizacion' => $autorizacion
         ];
 
@@ -83,6 +85,7 @@ class AutorizacionController extends Controller
             $autorizacion->fvcfechaAutorizacion   = trim($request->fvcfechaAutorizacion);
             $autorizacion->fvcestado              = trim($request->estado);
             $autorizacion->fvcusuario_id          = $request->usuario_sesion;
+            $autorizacion->fvcsede_creacion    = $request->sede_creacion;
 
             $autorizacion->save();
 
@@ -157,6 +160,7 @@ class AutorizacionController extends Controller
         $autorizacion->fvcfechaAutorizacion   = trim($request->fvcfechaAutorizacion);
         $autorizacion->fvcestado              = trim($request->estado);
         $autorizacion->fvcusuario_id          = $request->usuario_sesion;
+        $autorizacion->fvcsede_creacion    = $request->sede_creacion;
 
         $autorizacion->save();
 

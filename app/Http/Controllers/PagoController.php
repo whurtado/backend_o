@@ -13,28 +13,25 @@ class PagoController extends Controller
 {
     public function index(Request $request){
 
-        $buscar = $request->buscar;
-        $criterio = $request->criterio;
+        $pago = DB::table('tblpago');
 
-        if ($buscar==''){
-            $pago = Pago::orderBy('id', 'asc')->paginate(7);
+        if ($request->nombre != '' && $request->nombre != 'null' ) {
+            $pago->where('fvcnombre', 'like', '%'.$request->nombre. '%');
         }
-        else{
-            $pago = Pago::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(7);
+
+        if ($request->documento != '' && $request->documento != 'null') {
+
+            $pago->where('fvcdocumento', '=', $request->documento);
         }
+
+
+        $pago = $pago->get();
 
 
         return [
-            'pagination' => [
-                'total'        => $pago->total(),
-                'current_page' => $pago->currentPage(),
-                'per_page'     => $pago->perPage(),
-                'last_page'    => $pago->lastPage(),
-                'from'         => $pago->firstItem(),
-                'to'           => $pago->lastItem(),
-            ],
             'pago' => $pago
         ];
+
 
     }
 
@@ -95,6 +92,7 @@ class PagoController extends Controller
             $pago->fvcpagofactura_id          = 1;
             $pago->fvcautorizacion_id         = 1;
             $pago->fvcsede_id                 = 1;
+            $pago->fvcsede_creacion    = $request->sede_creacion;
 
             $pago->save();
 
@@ -175,6 +173,7 @@ class PagoController extends Controller
         $pago->fvcpagofactura_id          = 1;
         $pago->fvcautorizacion_id         = 1;
         $pago->fvcsede_id                 = 1;
+        $pago->fvcsede_creacion    = $request->sede_creacion;
 
 
 

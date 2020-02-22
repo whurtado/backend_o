@@ -13,26 +13,27 @@ class VendedorController extends Controller
 {
     public function index(Request $request){
 
-        $buscar = $request->buscar;
-        $criterio = $request->criterio;
+        $vendedor = DB::table('tblvendedor');
 
-        if ($buscar==''){
-            $vendedor = Vendedor::orderBy('id', 'asc')->paginate(2);
+        if ($request->fvcnombre != '' && $request->fvcnombre != 'null' ) {
+            $vendedor->where('fvcnombre', 'like', '%'.$request->fvcnombre. '%');
         }
-        else{
-            $vendedor = Vendedor::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(2);
+
+        if ($request->estado != '' && $request->estado != 'null') {
+
+            $vendedor->where('fvcestado', '=', $request->estado);
         }
+
+       /* if ($request->sede_creacion != '' && $request->sede_creacion != 'null') {
+
+            $vendedor->where('fvcsede_creacion', '=', $request->sede_creacion);
+        }*/
+
+        $vendedor = $vendedor->get();
+
 
 
         return [
-            'pagination' => [
-                'total'        => $vendedor->total(),
-                'current_page' => $vendedor->currentPage(),
-                'per_page'     => $vendedor->perPage(),
-                'last_page'    => $vendedor->lastPage(),
-                'from'         => $vendedor->firstItem(),
-                'to'           => $vendedor->lastItem(),
-            ],
             'vendedor' => $vendedor
         ];
 
@@ -75,8 +76,7 @@ class VendedorController extends Controller
             $vendedor->fvcnombre     = trim($request->fvcnombre);
             $vendedor->fvcestado     = trim($request->estado);
             $vendedor->fvcusuario_id = $request->usuario_sesion;
-
-
+            $vendedor->fvcsede_creacion = $request->sede_creacion;
 
             $vendedor->save();
 
@@ -145,6 +145,7 @@ class VendedorController extends Controller
         $vendedor->fvcnombre     = trim($request->fvcnombre);
         $vendedor->fvcestado     = trim($request->estado);
         $vendedor->fvcusuario_id = $request->usuario_sesion;
+        $vendedor->fvcsede_creacion = $request->sede_creacion;
 
         $vendedor->save();
 

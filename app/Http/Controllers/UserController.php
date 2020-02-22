@@ -10,10 +10,10 @@ use Validator;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-//use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 use App\User;
-//use App\sede;
+use App\sede;
 
 
 class UserController extends Controller
@@ -21,11 +21,32 @@ class UserController extends Controller
     public function index(Request $request){
 
 
-        $buscar = $request->buscar;
+        $user = DB::table('users');
+
+        if ($request->nombre != '' && $request->nombre != 'null' ) {
+            $user->where('name', 'like', '%'.$request->nombre. '%');
+        }
+
+        if ($request->email != '' && $request->email != 'null' ) {
+            $user->where('email', 'like', '%'.$request->email. '%');
+        }
+
+        if ($request->sede != '' && $request->sede != 'null' ) {
+            $user->where('fvcsede_id', 'like', '%'.$request->sede. '%');
+        }
+
+        $user = $user->get();
+
+
+        return [
+            'user' => $user
+        ];
+
+
+      /*  $buscar = $request->buscar;
         $criterio = $request->criterio;
 
         if ($buscar==''){
-            // $user = User::orderBy('id', 'desc')->with('roles')->first()->paginate(7);
             $user = User::with('roles')->orderBy('id', 'asc')->paginate(7);
 
 
@@ -45,7 +66,7 @@ class UserController extends Controller
                 'to'           => $user->lastItem(),
             ],
             'user' => $user
-        ];
+        ];*/
 
     }
 
@@ -96,10 +117,11 @@ class UserController extends Controller
 
 
         $usuario = new User();
-        $usuario->name       = trim($request->name);
-        $usuario->email      = trim($request->email);
-        $usuario->password   = bcrypt($request->password);
-        $usuario->fvcsede_id = $request->sede;
+        $usuario->name              = trim($request->name);
+        $usuario->email             = trim($request->email);
+        $usuario->password          = bcrypt($request->password);
+        $usuario->fvcsede_id        = $request->sede;
+        $usuario->fvcsede_creacion  = $request->sede_creacion;
 
         $usuario->save();
 
@@ -175,6 +197,8 @@ class UserController extends Controller
             $user->password = bcrypt($request->password);
         }
         $user->fvcsede_id = $request->sede;
+        $user->fvcsede_creacion  = $request->sede_creacion;
+
 
         $user->save();
 
@@ -184,5 +208,31 @@ class UserController extends Controller
         );
 
         return $response;
+    }
+
+    public function mostrarSedesDelUsuario(Request $request){
+
+        $sedesUsuario = DB::table('users')
+            ->select("fvcsede_id")
+            ->where('email', '=', $request->email)
+            ->get();
+
+
+
+        return [
+            'sedes'  => $sedesUsuario,
+
+        ];
+
+    }
+
+    public function traerSedes(Request $request){
+
+            $sede = sede::orderBy('id', 'asc')->get();
+
+        return [
+            'sede' => $sede
+        ];
+
     }
 }

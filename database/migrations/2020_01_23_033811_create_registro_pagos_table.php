@@ -22,6 +22,7 @@ class CreateRegistroPagosTable extends Migration
             $table->float('flngvalorPagar',10);
             $table->text('fvcobservacion');
             $table->string('fvcestado', 50);
+            $table->integer('fvcsede_creacion');
             $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
             $table->timestamps();

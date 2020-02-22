@@ -31,6 +31,7 @@ class CreatePagosTable extends Migration
             $table->unsignedBigInteger('fvcpagofactura_id');
             $table->unsignedBigInteger('fvcautorizacion_id');
             $table->unsignedBigInteger('fvcsede_id');
+            $table->integer('fvcsede_creacion');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
             //$table->foreign('fvcpagofactura_id')->references('id')->on('tblpagofactura');
             //$table->foreign('fvcautorizacion_id')->references('id')->on('tblautorizacion');

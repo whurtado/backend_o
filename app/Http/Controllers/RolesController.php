@@ -7,13 +7,23 @@ use Illuminate\Validation\Rule;
 use Validator;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\DB;
 
 
 class RolesController extends Controller
 {
     public function index(Request $request){
 
-        $roles= Role::all();
+
+        $roles = DB::table('roles');
+
+        if ($request->nombre != '' && $request->nombre != 'null' ) {
+            $roles->where('name', 'like', '%'.$request->nombre. '%');
+        }
+
+        $roles = $roles->get();
+
+        //$roles= Role::all();
         return $roles;
     }
 

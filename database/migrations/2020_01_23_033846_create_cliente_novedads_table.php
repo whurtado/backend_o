@@ -17,6 +17,7 @@ class CreateClienteNovedadsTable  extends Migration
             $table->increments('id');
             $table->string('fdtdescripcion', 150)->nullable();
             $table->date('fdtfecha');
+            $table->integer('fvcsede_creacion');
             $table->unsignedBigInteger('fvccliente_id');
             $table->unsignedBigInteger('fvcusuario_id');
             //$table->foreign('fvccliente_id')->references('id')->on('tblcliente');

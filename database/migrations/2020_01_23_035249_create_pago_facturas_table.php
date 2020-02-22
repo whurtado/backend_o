@@ -21,6 +21,7 @@ class CreatePagoFacturasTable extends Migration
             $table->string('fvcformapago',50);
             $table->string('fvcnotarjeta', 100);
             $table->string('fvcdescripciontarjeta', 250);
+            $table->integer('fvcsede_creacion');
             //$table->integer('fvccodigo');
             $table->unsignedBigInteger('fvcusuario_id');
             $table->foreign('fvcusuario_id')->references('id')->on('users');

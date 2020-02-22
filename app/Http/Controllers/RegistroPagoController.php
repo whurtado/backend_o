@@ -83,6 +83,7 @@ class RegistroPagoController extends Controller
             $registroPago->fvcobservacion      = trim($request->fvcobservacion);
             $registroPago->fvcestado           = trim($request->fvcestado);
             $registroPago->fvcusuario_id       = $request->usuario_sesion;
+            $registroPago->fvcsede_creacion    = $request->sede_creacion;
 
 
             $registroPago->save();
@@ -154,6 +155,7 @@ class RegistroPagoController extends Controller
         $registroPago->fvcobservacion      = trim($request->fvcobservacion);
         $registroPago->fvcestado           = trim($request->fvcestado);
         $registroPago->fvcusuario_id       = $request->usuario_sesion;
+        $registroPago->fvcsede_creacion    = $request->sede_creacion;
 
         $registroPago->save();
 

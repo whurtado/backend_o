@@ -19,6 +19,7 @@ class CreateClasificacionPagosTable extends Migration
             $table->text('fvcdescripcion');
             $table->string('fvcestado', 50);
             $table->unsignedBigInteger('fvcusuario_id');
+            $table->integer('fvcsede_creacion');
             $table->foreign('fvcusuario_id')->references('id')->on('users');
             $table->timestamps();
         });

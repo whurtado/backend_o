@@ -19,16 +19,30 @@ class ClienteController extends Controller
 
     //RUTA INDEX
     public function index(Request $request){
+        
+        $cliente = DB::table('tblcliente');
 
-        $buscar = $request->buscar;
-        $criterio = $request->criterio;
+        if ($request->fvcprimernombre != '' && $request->fvcprimernombre != 'null' && $request->fvcprimernombre != 'undefined' ) {
+            $cliente->where('fvcprimernombre', 'like', '%'.$request->fvcprimernombre. '%');
+        }
 
-        if ($buscar==''){
-            $cliente = Cliente::orderBy('id', 'asc')->paginate(7);
+        if ($request->documento != '' && $request->documento != 'null') {
+
+            $cliente->where('fvcdocumento', 'like', '%'.$request->documento. '%');
+
         }
-        else{
-            $cliente = Cliente::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(7);
+
+        if ($request->email != '' && $request->email != 'null') {
+
+            $cliente->where('email', 'like', '%'.$request->email. '%');
         }
+
+        $cliente = $cliente->get();
+
+
+        return [
+            'cliente' => $cliente
+        ];
 
 
         return [
@@ -72,14 +86,12 @@ class ClienteController extends Controller
 
         if ($validator->fails()) {
 
-            if($request->ajax())
-            {
                 return response()->json(array(
                     'success' => false,
                     'message' => 'There are incorect values in the form!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
+
 
             $this->throwValidationException(
                 $request, $validator
@@ -110,6 +122,7 @@ class ClienteController extends Controller
             $cliente->email               = trim($request->email);
             $cliente->clienteestado_id    = 1;
             $cliente->fvcusuario_id       = $request->usuario_sesion;
+            $cliente->fvcsede_creacion    = $request->sede_creacion;
 
             $cliente->save();
 
@@ -196,13 +209,11 @@ class ClienteController extends Controller
 
         if ($validator->fails()) {
 
-            if ($request->ajax()) {
                 return response()->json(array(
                     'success' => false,
                     'message' => 'There are incorect values in the form!',
                     'errors' => $validator->getMessageBag()->toArray()
                 ), 422);
-            }
 
             $this->throwValidationException(
                 $request, $validator
@@ -230,8 +241,9 @@ class ClienteController extends Controller
             $cliente->fvcfechacumpleano = $request->fechaNacimiento;
             $cliente->fvcestado = trim('PENDIENTE');
             $cliente->email = trim($request->email);
-            $cliente->clienteestado_id = 1;
-            $cliente->fvcusuario_id  = $request->usuario_sesion;
+            $cliente->clienteestado_id    = 1;
+            $cliente->fvcusuario_id       = $request->usuario_sesion;
+            $cliente->fvcsede_creacion    = $request->sede_creacion;
 
             $cliente->save();
 
@@ -251,6 +263,7 @@ class ClienteController extends Controller
                 $detalle->dfvnombre_referencia = $det['dfvnombre_referencia'];
                 $detalle->dfvtelefono_referencia = $det['dfvtelefono_referencia'];
                 $detalle->fvcusuario_id  = $request->usuario_sesion;
+                $detalle->fvcsede_creacion    = $request->sede_creacion;
 
                 $detalle->save();
             }
@@ -328,6 +341,8 @@ class ClienteController extends Controller
         }
         $cliente->fdtfecha       = date("Y-m-d");
         $cliente->fvcusuario_id  = $request->fvcusuario_id;
+        $cliente->fvcsede_creacion    = $request->sede_creacion;
+
         $cliente->save();
 
 
@@ -391,6 +406,8 @@ class ClienteController extends Controller
         $cliente->fdtdescripcion = trim($request->fdtdescripcion);
         $cliente->fdtfecha       = date("Y-m-d");
         $cliente->fvcusuario_id  = $request->fvcusuario_id;
+        $cliente->fvcsede_creacion    = $request->sede_creacion;
+
         $cliente->save();
 
         $response = array(

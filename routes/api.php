@@ -56,11 +56,14 @@ Route::group([
 
     //USUARIO
 
-    Route::get('/usuarios', 'UserController@index');
+    Route::post('/usuarios', 'UserController@index');
     Route::get('/usuarios/create', 'UserController@create');
     Route::post('/usuarios/registrar', 'UserController@store');
     Route::get('/usuarios/edit/{user}', 'UserController@edit');
     Route::post('/usuarios/actualizar', 'UserController@update');
+    Route::post('/usuarios/mostrarSedesDelUsuario', 'UserController@mostrarSedesDelUsuario');
+    Route::get('/usuarios/traerSedes', 'UserController@traerSedes');
+
 
     //ROLES USUARIO
     Route::post('/usuariosRoles/actualizar', 'UserRolesController@update');
@@ -72,14 +75,14 @@ Route::group([
 
 
     //ROLES
-    Route::get('/roles', 'RolesController@index');
+    Route::post('/roles', 'RolesController@index');
     Route::get('/roles/create', 'RolesController@create');
     Route::post('/roles/registrar', 'RolesController@store');
     Route::get('/roles/edit/{user}', 'RolesController@edit');
     Route::post('/roles/actualizar', 'RolesController@update');
 
     //CLIENTE
-    Route::get('/clientes', 'ClienteController@index');
+    Route::post('/clientes', 'ClienteController@index');
     Route::get('/clientes/create', 'ClienteController@create');
     Route::post('/clientes/registrar', 'ClienteController@store');
     Route::get('/clientes/edit/{cliente}', 'ClienteController@edit');
@@ -91,7 +94,7 @@ Route::group([
 
 
     //VENDEDOR
-    Route::get('/vendedores', 'VendedorController@index');
+    Route::post('/vendedores', 'VendedorController@index');
     Route::get('/vendedores/create', 'VendedorController@create');
     Route::post('/vendedores/registrar', 'VendedorController@store');
     Route::get('/vendedores/edit/{vendedor}', 'VendedorController@edit');
@@ -99,15 +102,15 @@ Route::group([
 
 
     //CATEGORIA
-    Route::get('/categorias', 'CategoriaController@index');
+    Route::post('/categorias', 'CategoriaController@index');
     Route::get('/categorias/create', 'CategoriaController@create');
     Route::post('/categorias/registrar', 'CategoriaController@store');
     Route::get('/categorias/edit/{categoria}', 'CategoriaController@edit');
     Route::post('/categorias/actualizar', 'CategoriaController@update');
-
+    Route::get('/categorias/categoriasSinFiltros', 'CategoriaController@categoriasSinFiltros');
 
     //ARTICULO
-    Route::get('/articulos', 'ArticuloController@index');
+    Route::post('/articulos', 'ArticuloController@index');
     Route::get('/articulos/create', 'ArticuloController@create');
     Route::post('/articulos/registrar', 'ArticuloController@store');
     Route::get('/articulos/edit/{articulo}', 'ArticuloController@edit');
@@ -115,7 +118,7 @@ Route::group([
 
 
     //PAGO
-    Route::get('/pagos', 'PagoController@index');
+    Route::post('/pagos', 'PagoController@index');
     Route::get('/pagos/create', 'PagoController@create');
     Route::post('/pagos/registrar', 'PagoController@store');
     Route::get('/pagos/edit/{pago}', 'PagoController@edit');
@@ -127,7 +130,7 @@ Route::group([
 
 
     //FACTURA
-    Route::get('/ordenservicios', 'FacturaController@index');
+    Route::post('/ordenservicios', 'FacturaController@index');
     Route::get('/ordenservicios/create', 'FacturaController@create');
     Route::post('/ordenservicios/registrar', 'FacturaController@store');
     Route::get('/ordenservicios/edit/{orden}', 'FacturaController@edit');
@@ -138,14 +141,14 @@ Route::group([
 
 
     //AUTORIZACION
-    Route::get('/autorizaciones', 'AutorizacionController@index');
+    Route::post('/autorizaciones', 'AutorizacionController@index');
     Route::get('/autorizaciones/create', 'AutorizacionController@create');
     Route::post('/autorizaciones/registrar', 'AutorizacionController@store');
     Route::get('/autorizaciones/edit/{autorizacion}', 'AutorizacionController@edit');
     Route::post('/autorizaciones/actualizar', 'AutorizacionController@update');
 
     //TIPO AUTORIZACION
-    Route::get('/tipoAutorizaciones', 'TipoAutorizacionController@index');
+    Route::post('/tipoAutorizaciones', 'TipoAutorizacionController@index');
     Route::get('/tipoAutorizaciones/mostrarTipoAutorizacion', 'TipoAutorizacionController@mostrarTipoAutorizacion');
     Route::get('/tipoAutorizaciones/create', 'TipoAutorizacionController@create');
     Route::post('/tipoAutorizaciones/registrar', 'TipoAutorizacionController@store');
@@ -153,7 +156,7 @@ Route::group([
     Route::post('/tipoAutorizaciones/actualizar', 'TipoAutorizacionController@update');
 
     //SEDE
-    Route::get('/sedes', 'SedeController@index');
+    Route::post('/sedes', 'SedeController@index');
     Route::get('/sedes/mostrarSede', 'SedeController@mostrarSede');
     Route::get('/sedes/create', 'SedeController@create');
     Route::post('/sedes/registrar', 'SedeController@store');
@@ -161,14 +164,14 @@ Route::group([
     Route::post('/sedes/actualizar', 'SedeController@update');
 
     //CLASIFICACION PAGO
-    Route::get('/clasificacionPagos', 'ClasificacionPagoController@index');
+    Route::post('/clasificacionPagos', 'ClasificacionPagoController@index');
     Route::get('/clasificacionPagos/create', 'ClasificacionPagoController@create');
     Route::post('/clasificacionPagos/registrar', 'ClasificacionPagoController@store');
     Route::get('/clasificacionPagos/edit/{clasificacionpago}', 'ClasificacionPagoController@edit');
     Route::post('/clasificacionPagos/actualizar', 'ClasificacionPagoController@update');
 
     //REGISTRO PAGO
-    Route::get('/registroPagos', 'RegistroPagoController@index');
+    Route::post('/registroPagos', 'RegistroPagoController@index');
     Route::get('/registroPagos/create', 'RegistroPagoController@create');
     Route::post('/registroPagos/registrar', 'RegistroPagoController@store');
     Route::get('/registroPagos/edit/{registropago}', 'RegistroPagoController@edit');
