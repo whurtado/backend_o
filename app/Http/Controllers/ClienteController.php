@@ -19,7 +19,7 @@ class ClienteController extends Controller
 
     //RUTA INDEX
     public function index(Request $request){
-        
+
         $cliente = DB::table('tblcliente');
 
         if ($request->fvcprimernombre != '' && $request->fvcprimernombre != 'null' && $request->fvcprimernombre != 'undefined' ) {
@@ -41,19 +41,6 @@ class ClienteController extends Controller
 
 
         return [
-            'cliente' => $cliente
-        ];
-
-
-        return [
-            'pagination' => [
-                'total'        => $cliente->total(),
-                'current_page' => $cliente->currentPage(),
-                'per_page'     => $cliente->perPage(),
-                'last_page'    => $cliente->lastPage(),
-                'from'         => $cliente->firstItem(),
-                'to'           => $cliente->lastItem(),
-            ],
             'cliente' => $cliente
         ];
 
